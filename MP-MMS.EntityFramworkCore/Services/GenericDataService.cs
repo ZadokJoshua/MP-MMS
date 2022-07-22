@@ -24,19 +24,34 @@ namespace MP_MMS.EntityFramworkCore.Services
             }
         }
 
-        public Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                IEnumerable<T> entities = await context.Set<T>().ToListAsync();
+                return entities;
+            }
         }
 
-        public Task<T> GetById(int id)
+        public async Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                var entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+                return entity;
+            }
         }
 
-        public Task<T> Update(int id, T entity)
+        public async Task<T> Update(int id, T entity)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                entity.Id = id;
+                context.Set<T>().Update(entity);
+                await context.SaveChangesAsync();
+
+                return entity;
+            }
         }
 
         public async Task<bool> Delete(int id)
