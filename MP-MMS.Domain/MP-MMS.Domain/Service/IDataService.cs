@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MP_MMS.Domain.Service
+﻿namespace MP_MMS.Domain.Service
 {
     public interface IDataService<T>
     {
@@ -16,6 +10,6 @@ namespace MP_MMS.Domain.Service
 
         Task<T> Update(int id, T entity);
         
-        Task<T> Delete(T entity);
+        Task<bool> Delete(int id);
     }
 }
