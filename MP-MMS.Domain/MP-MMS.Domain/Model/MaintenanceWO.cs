@@ -8,7 +8,7 @@
         public Employee? AssignedTo { get; set; }
         public DateTime DueDate { get; set; }
         public string? WOImageLocation { get; set; }
-        public Part? Part { get; set; }
+        public Equipment? Equipment { get; set; }
         public bool IsCompleted { get; set; }
     }
 }
