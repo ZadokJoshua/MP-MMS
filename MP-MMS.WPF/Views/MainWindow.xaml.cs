@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MP_MMS.WPF.Views.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +24,8 @@ namespace MP_MMS.WPF
         public MainWindow()
         {
             InitializeComponent();
+            ContentFrame.Content = new HomeDashboard();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
