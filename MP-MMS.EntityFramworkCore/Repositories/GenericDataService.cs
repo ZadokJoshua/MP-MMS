@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MP_MMS.Domain.Model;
-using MP_MMS.Domain.Service;
 
-namespace MP_MMS.EntityFramworkCore.Services
+namespace MP_MMS.EntityFramworkCore.Repositories
 {
-    public class GenericDataService<T> : IDataService<T> where T : DomainObject
+    public class GenericDataService<T> : IDataService<T> where T : BaseModel
     {
         private readonly MP_MMSDbContextFactory _contextFactory;
 

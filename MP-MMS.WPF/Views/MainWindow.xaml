@@ -66,7 +66,8 @@
                         Grid.Row="2" 
                         Background="{StaticResource BrushPrimaryColour1}">
                 
-                <Button Style="{StaticResource ButtonStyle}">
+                <Button Style="{StaticResource ButtonStyle}"
+                        >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -83,7 +84,8 @@
 
                 </Button>
 
-                <Button Style="{StaticResource ButtonStyle}">
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="Button_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -155,7 +157,8 @@
         <Grid Grid.Row="2"
               Margin="30">
 
-            <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="ContentFrame" 
+                   NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>

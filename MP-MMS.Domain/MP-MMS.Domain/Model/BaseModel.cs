@@ -1,6 +1,6 @@
 ﻿namespace MP_MMS.Domain.Model
 {
-    public class DomainObject
+    public class BaseModel
     {
         public int Id { get; set; }
     }

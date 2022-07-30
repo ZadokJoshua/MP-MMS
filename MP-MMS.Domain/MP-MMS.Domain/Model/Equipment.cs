@@ -1,6 +1,6 @@
 ﻿namespace MP_MMS.Domain.Model
 {
-    public class Equipment : DomainObject
+    public class Equipment : BaseModel
     {
         public string? Name { get; set; }
         public string? Manufacturer { get; set; }

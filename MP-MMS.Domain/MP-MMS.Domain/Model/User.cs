@@ -1,6 +1,6 @@
 ﻿namespace MP_MMS.Domain.Model
 {
-    public class User : DomainObject
+    public class User : BaseModel
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

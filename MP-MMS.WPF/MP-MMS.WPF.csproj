@@ -13,6 +13,12 @@
     <None Remove="Images\cog.png" />
     <None Remove="Images\home.png" />
     <None Remove="Images\locator.png" />
+    <None Remove="Images\PagesIcons\add.png" />
+    <None Remove="Images\PagesIcons\delete.png" />
+    <None Remove="Images\PagesIcons\deleteButton.png" />
+    <None Remove="Images\PagesIcons\download.png" />
+    <None Remove="Images\PagesIcons\edit.png" />
+    <None Remove="Images\question.png" />
     <None Remove="Images\repair.png" />
     <None Remove="Images\tool-box.png" />
     <None Remove="Images\toolbox.png" />
@@ -35,6 +41,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\locator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PagesIcons\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PagesIcons\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PagesIcons\deleteButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PagesIcons\download.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PagesIcons\edit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\question.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\repair.png">

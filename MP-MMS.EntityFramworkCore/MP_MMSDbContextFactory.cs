@@ -10,10 +10,10 @@ namespace MP_MMS.EntityFramworkCore
 {
     public class MP_MMSDbContextFactory : IDesignTimeDbContextFactory<MP_MMSDbContext>
     {
-        public MP_MMSDbContext CreateDbContext(string[]? args)
+        public MP_MMSDbContext CreateDbContext(string[]? args = null)
         {
             var options = new DbContextOptionsBuilder<MP_MMSDbContext>();
-            options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=MP_MMS_DB;Trusted_Connection=True");
+            options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=MP_MMS_DB.db;Trusted_Connection=True");
 
             return new MP_MMSDbContext(options.Options);
         }

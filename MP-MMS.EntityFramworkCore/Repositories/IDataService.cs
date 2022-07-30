@@ -1,4 +1,4 @@
-﻿namespace MP_MMS.Domain.Service
+﻿namespace MP_MMS.EntityFramworkCore.Repositories
 {
     public interface IDataService<T>
     {
@@ -9,7 +9,7 @@
         Task<T> GetById(int id);
 
         Task<T> Update(int id, T entity);
-        
+
         Task<bool> Delete(int id);
     }
 }

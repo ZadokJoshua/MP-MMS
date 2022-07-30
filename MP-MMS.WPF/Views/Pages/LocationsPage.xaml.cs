@@ -1,5 +1,4 @@
-﻿using MP_MMS.WPF.Views.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MP_MMS.WPF
+namespace MP_MMS.WPF.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LocationsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LocationsPage : Page
     {
-        public PartsPage PartPage { get; private set; }
-
-        public MainWindow()
+        public LocationsPage()
         {
             InitializeComponent();
-            ContentFrame.Content = new HomeDashboard();
-            PartPage = new PartsPage();
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Content = PartPage;
         }
     }
 }

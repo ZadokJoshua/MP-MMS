@@ -1,6 +1,6 @@
 ﻿namespace MP_MMS.Domain.Model
 {
-    public class MaintenanceWO : DomainObject
+    public class MaintenanceWO : BaseModel
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
