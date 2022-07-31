@@ -20,9 +20,34 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
+        IEnumerable<Friends> FriendsList = new List<Friends>()
+        {
+        new Friends()
+        {
+            FirstName = "Zadok",
+            LastName = "Samuel"
+
+        },
+        new Friends()
+        {
+            FirstName = "Zadok",
+            LastName = "Samuel"
+        }
+    };
+        
+
         public PartsPage()
         {
             InitializeComponent();
+            partsListView.ItemsSource = FriendsList;
         }
+       
+    }
+
+    public class Friends
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ImageLocation { get; set; }
     }
 }

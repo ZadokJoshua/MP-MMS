@@ -47,7 +47,9 @@
             <Syncfusion:SfTextBoxExt Watermark="Search" 
                                      Height="30"
                                      Grid.Column="0"
-                                     FontSize="20"/>
+                                     FontSize="16"
+                                     VerticalAlignment="Center"/>
+
             <Button Grid.Column="1"
                     Width="120"
                     Margin="10 0"
@@ -70,6 +72,8 @@
                 </Grid>
 
             </Button>
+
+
             <Button Grid.Column="2"
                     Background="#3D8421"
                     Width="150"
@@ -95,23 +99,35 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                        <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="100"/>
-                        <GridViewColumn Header="Picture" Width="100">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding Image}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Manager" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                        <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                        <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Role}" Width="100"/>
+                        <GridViewColumn Header="Location" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
+                        <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
+                        <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="Update" Foreground="Blue"/>
-                                        <Button Content="Delete" Foreground="Red"/>
+                                        <Button Grid.Column="1"
+                                                Width="30"
+                                                Margin="5 0"
+                                                BorderThickness="0"
+                                                Background="#568CD9">
+                                            <Image  Source="/Images/pagesicons/edit.png"
+                                                    Style="{StaticResource ButtonIconsStyle}"/>
+                                        </Button>
+                                        <Button Grid.Column="1"
+                                                Width="30"
+                                                Margin="5 0"
+                                                BorderThickness="0"
+                                                Background="#F44336">
+                                            <Image  Source="/Images/pagesicons/delete.png"
+                                                    Style="{StaticResource ButtonIconsStyle}"/>
+                                        </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
