@@ -8,7 +8,8 @@
         xmlns:Syncfusion1="http://schemas.syncfusion.com/wpf" 
         xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf"
         mc:Ignorable="d"
-        Title="Create New Issue" Height="350" Width="500">
+        Title="Create New Issue" Height="340" Width="500"
+        ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -21,41 +22,18 @@
                FontSize="30"
                FontWeight="Bold"
                FontFamily="{StaticResource DefaultFont}"/>
-            <TextBlock Text="Write a name and other details"
+            <TextBlock Text="Write a name and other details of new issue"
                        TextWrapping="Wrap"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" >
             <Label Content="Name"/>
-            <Syncfusion1:SfTextBoxExt Watermark="Welding rod"
+            <Syncfusion1:SfTextBoxExt Watermark="Broken Welding rod"
                                      Margin="5 0"/>
-            <Label Content="Manufacturer"/>
-            <Syncfusion1:SfTextBoxExt Watermark="Polyteric Systems"
-                                     Margin="5 0"/>
-            <Label Content="Serial Number"/>
-            <Syncfusion1:SfTextBoxExt Watermark="00-00-123"
-                                     Margin="5 0"/>
-            <Label Content="Model Number"/>
-            <Syncfusion2:SfTextBoxExt Watermark="00-00-ABC"
-                                     Margin="5 0"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Column="0"
-                             Margin="5 0">
-                    <Label Content="Category"/>
-                    <Syncfusion:ComboBoxAdv/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1" 
-                            Margin="5 0">
-                    <Label Content="Location "/>
-                    <Syncfusion:ComboBoxAdv/>
-                </StackPanel>
-            </Grid>
+            <Label Content="Description"/>
+            <Syncfusion1:SfTextBoxExt Watermark="Fix destroyed joint..."
+                                     Margin="5 0"
+                                      Height="60"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -65,19 +43,41 @@
 
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
-                    <Label Content="Cost per Unit (₦)"/>
-                    <Syncfusion1:IntegerTextBox />
+                    <Label Content="Affected Part"/>
+                    <Syncfusion:ComboBoxAdv/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
-                    <Label Content="Quantity "/>
-                    <Syncfusion1:IntegerTextBox />
+                    <Label Content="Assigned to"/>
+                    <Syncfusion:ComboBoxAdv Margin="5 0"/>
                 </StackPanel>
             </Grid>
 
-            <Syncfusion:ButtonAdv Margin="5 10"
-                                  Label="Add Part"
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                             Margin="5 0">
+                    <Label Content="Priority"/>
+                    <Syncfusion:ComboBoxAdv/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" 
+                            Margin="5 0">
+                    <Label Content="Due Date"/>
+                    <Syncfusion1:SfDatePicker Margin="5 0"/>
+                </StackPanel>
+            </Grid>
+
+            <CheckBox Content="Completed" Margin="5 10"/>
+
+            <Syncfusion:ButtonAdv Margin="5 0"
+                                  Label="Create Issue"
                                   Foreground="White"
                                   Background="#3D8421"
                                   SmallIcon="/Images/pagesicons/add.png"/>

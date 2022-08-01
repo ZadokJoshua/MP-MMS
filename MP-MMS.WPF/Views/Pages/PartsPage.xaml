@@ -100,8 +100,8 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding LastName}" Width="100"/>
                         <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding LastName}" Width="100"/>
                         <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Role}" Width="100"/>
                         <GridViewColumn Header="Location" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>

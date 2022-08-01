@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
         mc:Ignorable="d"
-        Title="Add Part" Height="350" Width="500">
+        Title="Add New Part" Height="350" Width="500"
+        ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -17,7 +18,7 @@
                FontSize="30"
                FontWeight="Bold"
                FontFamily="{StaticResource DefaultFont}"/>
-            <TextBlock Text="Write a name and other details"
+            <TextBlock Text="Write a name and other details of new machine part"
                        TextWrapping="Wrap"/>
         </StackPanel>
 
@@ -57,6 +58,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0"
@@ -69,6 +71,12 @@
                             Margin="5 0">
                     <Label Content="Quantity "/>
                     <Syncfusion:IntegerTextBox />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" 
+                            Margin="5 0">
+                    <Label Content="Date Added"/>
+                    <Syncfusion:SfDatePicker/>
                 </StackPanel>
             </Grid>
 

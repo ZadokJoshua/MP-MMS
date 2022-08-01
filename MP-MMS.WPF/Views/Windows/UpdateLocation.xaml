@@ -3,10 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf"
         mc:Ignorable="d"
-        Title="UpdateLocation" Height="450" Width="800">
+        Title="Update Location" Height="200" Width="500"
+        ResizeMode="NoResize">
+
     <Grid>
-        
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Update Location"
+                           TextWrapping="Wrap"
+               FontSize="30"
+               FontWeight="Bold"
+               FontFamily="{StaticResource DefaultFont}"/>
+                <TextBlock Text="Update the name and address of location"
+                       TextWrapping="Wrap"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" >
+                <Label Content="Name"/>
+                <Syncfusion1:SfTextBoxExt Watermark="Workshop 1"
+                                     Margin="5 0"/>
+                <Label Content="Address"/>
+                <Syncfusion1:SfTextBoxExt Watermark="Port Harcourt, River's state."
+                                     Margin="5 0"/>
+
+                <Syncfusion:ButtonAdv Margin="5 10"
+                                  Label="Update Location"
+                                  Foreground="White"
+                                  Background="#4A88DA"
+                                  SmallIcon="/Images/pagesicons/edit.png"/>
+
+                <Syncfusion:ButtonAdv Margin="5 0"
+                                  Label="Delete Location"
+                                  Foreground="White"
+                                  Background="#F44336"
+                                  SmallIcon="/Images/pagesicons/delete.png"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

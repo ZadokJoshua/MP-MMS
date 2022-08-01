@@ -3,10 +3,96 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
         mc:Ignorable="d"
-        Title="UpdatePart" Height="450" Width="800">
-    <Grid>
-        
+        Title="Update Part" Height="390" Width="500"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Update Part"
+                       TextWrapping="Wrap"
+               FontSize="30"
+               FontWeight="Bold"
+               FontFamily="{StaticResource DefaultFont}"/>
+            <TextBlock Text="Update part details"
+                       TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" >
+            <Label Content="Name"/>
+            <Syncfusion:SfTextBoxExt Watermark="Welding rod"
+                                     Margin="5 0"/>
+            <Label Content="Manufacturer"/>
+            <Syncfusion:SfTextBoxExt Watermark="Polyteric Systems"
+                                     Margin="5 0"/>
+            <Label Content="Serial Number"/>
+            <Syncfusion:SfTextBoxExt Watermark="00-00-123"
+                                     Margin="5 0"/>
+            <Label Content="Model Number"/>
+            <Syncfusion:SfTextBoxExt Watermark="00-00-ABC"
+                                     Margin="5 0"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                             Margin="5 0">
+                    <Label Content="Category"/>
+                    <Syncfusion1:ComboBoxAdv/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" 
+                            Margin="5 0">
+                    <Label Content="Location "/>
+                    <Syncfusion1:ComboBoxAdv/>
+                </StackPanel>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                             Margin="5 0">
+                    <Label Content="Cost per Unit (₦)"/>
+                    <Syncfusion2:IntegerTextBox />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" 
+                            Margin="5 0">
+                    <Label Content="Quantity "/>
+                    <Syncfusion2:IntegerTextBox />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" 
+                            Margin="5 0">
+                    <Label Content="Date Added"/>
+                    <Syncfusion:SfDatePicker/>
+                </StackPanel>
+            </Grid>
+
+            <Syncfusion1:ButtonAdv Margin="5 10"
+                                  Label="Update Part"
+                                  Foreground="White"
+                                  Background="#4A88DA"
+                                  SmallIcon="/Images/pagesicons/edit.png"/>
+
+            <Syncfusion1:ButtonAdv Margin="5 0"
+                                  Label="Delete Part"
+                                  Foreground="White"
+                                  Background="#F44336"
+                                  SmallIcon="/Images/pagesicons/delete.png"/>
+
+        </StackPanel>
     </Grid>
 </Window>

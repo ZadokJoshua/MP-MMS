@@ -3,10 +3,52 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
         mc:Ignorable="d"
-        Title="UpdateUser" Height="450" Width="800">
-    <Grid>
-        
+        Title="Updat User" Height="290" Width="500"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Update User"
+                       TextWrapping="Wrap"
+               FontSize="30"
+               FontWeight="Bold"
+               FontFamily="{StaticResource DefaultFont}"/>
+            <TextBlock Text="Update details of a user"
+                       TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" >
+            <Label Content="First Name"/>
+            <Syncfusion:SfTextBoxExt Watermark="James"
+                                     Margin="5 0"/>
+            <Label Content="Last Name"/>
+            <Syncfusion:SfTextBoxExt Watermark="Bond"
+                                     Margin="5 0"/>
+            <Label Content="Role"/>
+            <Syncfusion:SfTextBoxExt Watermark="Mechanic"
+                                     Margin="5 0"/>
+            <Label Content="Email"/>
+            <Syncfusion:SfTextBoxExt Watermark="james007@outlook.com"
+                                     Margin="5 0"/>
+
+            <Syncfusion1:ButtonAdv Margin="5 10"
+                                  Label="Update User"
+                                  Foreground="White"
+                                  Background="#4A88DA"
+                                  SmallIcon="/Images/pagesicons/edit.png"/>
+            
+            <Syncfusion1:ButtonAdv Margin="5 0"
+                                  Label="Delete Part"
+                                  Foreground="White"
+                                  Background="#F44336"
+                                  SmallIcon="/Images/pagesicons/delete.png"/>
+
+        </StackPanel>
     </Grid>
 </Window>

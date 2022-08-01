@@ -3,10 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion2="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="AddLocation" Height="450" Width="800">
+        Title="Add New Location" Height="170" Width="500"
+        ResizeMode="NoResize">
+    
     <Grid>
-        
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Add Location"
+                           TextWrapping="Wrap"
+               FontSize="30"
+               FontWeight="Bold"
+               FontFamily="{StaticResource DefaultFont}"/>
+                <TextBlock Text="Write a name and address for the new location"
+                       TextWrapping="Wrap"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" >
+                <Label Content="Name"/>
+                <Syncfusion1:SfTextBoxExt Watermark="Workshop 1"
+                                     Margin="5 0"/>
+                <Label Content="Address"/>
+                <Syncfusion2:SfTextBoxExt Watermark="Port Harcourt, River's state."
+                                     Margin="5 0"/>
+
+                <Syncfusion:ButtonAdv Margin="5 10"
+                                  Label="Add Part"
+                                  Foreground="White"
+                                  Background="#3D8421"
+                                  SmallIcon="/Images/pagesicons/add.png"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
