@@ -3,7 +3,7 @@ using MP_MMS.Domain.Model;
 
 namespace MP_MMS.EntityFramworkCore.Repositories
 {
-    public class GenericDataService<T> : IDataService<T> where T : BaseModel
+    public class GenericDataService<T> : IDataService<T> where T : class
     {
         private readonly MP_MMSDbContextFactory _contextFactory;
 
@@ -45,7 +45,6 @@ namespace MP_MMS.EntityFramworkCore.Repositories
         {
             using (var context = _contextFactory.CreateDbContext())
             {
-                entity.Id = id;
                 context.Set<T>().Update(entity);
                 await context.SaveChangesAsync();
 

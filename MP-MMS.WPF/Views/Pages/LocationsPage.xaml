@@ -57,7 +57,8 @@
                     Background="#3D8421"
                     Width="205"
                     BorderThickness="0"
-                    Margin="10 0 0 0">
+                    Margin="10 0 0 0"
+                    Click="AddLocation_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

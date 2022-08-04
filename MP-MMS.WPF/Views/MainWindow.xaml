@@ -27,7 +27,7 @@
                             DockPanel.Dock="Left">
                     <Image Source="\images\repair.png" 
                            VerticalAlignment="Center"
-                           Height="30" 
+                           Height="30"
                            Margin="20 0 5 0"/>
                     <Label Content="MP-MMS" 
                            Foreground="White" 
@@ -67,7 +67,7 @@
                         Background="{StaticResource BrushPrimaryColour1}">
                 
                 <Button Style="{StaticResource ButtonStyle}"
-                        >
+                        Click="HomePage_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -85,7 +85,7 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonStyle}"
-                        Click="Button_Click">
+                        Click="PartsPage_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -102,7 +102,8 @@
 
                 </Button>
 
-                <Button Style="{StaticResource ButtonStyle}">
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="IssuesPage_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -118,7 +119,8 @@
                     </Grid>
                 </Button>
 
-                <Button Style="{StaticResource ButtonStyle}">
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="UsersPage_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -128,14 +130,15 @@
                         <Image  Source="/Images/account.png"
                                 Grid.Column="0"
                                 Style="{StaticResource ButtonIconsStyle}"/>
-                        <TextBlock Text="Role" 
+                        <TextBlock Text="Users" 
                                    Grid.Column="1" 
                                    Style="{StaticResource ButtonTxtStyle}"/>
                     </Grid>
 
                 </Button>
 
-                <Button Style="{StaticResource ButtonStyle}">
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="Locations_Click">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
