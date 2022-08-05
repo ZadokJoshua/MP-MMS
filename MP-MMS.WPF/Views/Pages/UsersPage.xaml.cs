@@ -23,9 +23,13 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class UsersPage : Page
     {
+        private List<Employee> employees;
         public UsersPage()
         {
             InitializeComponent();
+
+            employees = new List<Employee>();
+
             LoadListView();
         }
 
@@ -41,7 +45,12 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (var context = new MPMMSDbContext())
             {
-                partsListView.ItemsSource = context.Employees.ToList<Employee>();
+                employees = context.Employees.ToList<Employee>();
+            }
+
+            if(employees != null)
+            {
+                partsListView.ItemsSource = employees;
             }
         }
 
@@ -58,7 +67,30 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
+            Employee selectedEmployee = (Employee)partsListView.SelectedItem;
+            if (selectedEmployee != null)
+            {
+                string message = $"Do you want to delete {selectedEmployee.FirstName}'s data?";
+                string title = "Delete User";
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+                if(result is MessageBoxResult.Yes)
+                {
+                    using (var context = new MPMMSDbContext())
+                    {
+                        context.Employees.Remove(selectedEmployee);
+                        context.SaveChanges();
+                    }
+                }
+            }
 
+            LoadListView();
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var filteredList = employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            partsListView.ItemsSource = filteredList;
         }
     }
 }

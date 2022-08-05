@@ -67,7 +67,8 @@
                         Background="{StaticResource BrushPrimaryColour1}">
                 
                 <Button Style="{StaticResource ButtonStyle}"
-                        Click="HomePage_Click">
+                        Click="HomePage_Click"
+                        x:Name="homeButton">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -85,7 +86,8 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonStyle}"
-                        Click="PartsPage_Click">
+                        Click="PartsPage_Click"
+                        x:Name="partsButton">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -103,7 +105,8 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonStyle}"
-                        Click="IssuesPage_Click">
+                        Click="IssuesPage_Click"
+                        x:Name="issuesButton">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>

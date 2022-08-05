@@ -49,7 +49,9 @@
                                      Height="30"
                                      Grid.Column="0"
                                      FontSize="16"
-                                     VerticalAlignment="Center"/>
+                                     VerticalAlignment="Center"
+                                     x:Name="txtSearch"
+                                     TextChanged="SearchBox_TextChanged"/>
 
 
 

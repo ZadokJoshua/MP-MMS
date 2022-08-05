@@ -44,6 +44,26 @@ namespace MP_MMS.WPF.Views.Windows
                 context.Employees.Update(employee);
                 context.SaveChanges();
             }
+
+            this.Hide();
+        }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            string message = $"Do you want to delete {employee.FirstName}'s data?";
+            string title = "Delete User";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+            if (result is MessageBoxResult.Yes)
+            {
+                using (var context = new MPMMSDbContext())
+                {
+                    context.Employees.Remove(employee);
+                    context.SaveChanges();
+                }
+            }
+
+            this.Hide();
         }
     }
 }

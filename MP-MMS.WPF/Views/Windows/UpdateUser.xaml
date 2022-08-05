@@ -52,7 +52,8 @@
                                   Label="Delete Part"
                                   Foreground="White"
                                   Background="#F44336"
-                                  SmallIcon="/Images/pagesicons/delete.png"/>
+                                  SmallIcon="/Images/pagesicons/delete.png"
+                                   Click="DeleteUser_Click"/>
 
         </StackPanel>
     </Grid>
