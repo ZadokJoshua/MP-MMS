@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MP_MMS.WPF.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,17 @@ namespace MP_MMS.WPF.Views.Pages
             InitializeComponent();
             partsListView.ItemsSource = FriendsList;
         }
-       
+
+        private void ImportCSV_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddPart_Click(object sender, RoutedEventArgs e)
+        {
+            var addPartWindow = new AddPart();
+            addPartWindow.ShowDialog();
+        }
     }
 
     public class Friends

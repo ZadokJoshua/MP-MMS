@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
         mc:Ignorable="d"
-        Title="Add New Part" Height="350" Width="500"
+        Title="Add New Part" Height="380" Width="500"
         ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>

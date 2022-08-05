@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MP_MMS.Data;
+using MP_MMS.Domain.Model;
+using MP_MMS.WPF.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,39 @@ namespace MP_MMS.WPF.Views.Pages
         public UsersPage()
         {
             InitializeComponent();
+            LoadListView();
+        }
+
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            var addUserWindow = new AddUser();
+            addUserWindow.ShowDialog();
+            LoadListView();
+        }
+
+
+        void LoadListView()
+        {
+            using (var context = new MPMMSDbContext())
+            {
+                partsListView.ItemsSource = context.Employees.ToList<Employee>();
+            }
+        }
+
+        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selectedEmployee = (Employee)partsListView.SelectedItem;
+            if (selectedEmployee != null)
+            {
+                var updateUserWindow = new UpdateUser(selectedEmployee);
+                updateUserWindow.ShowDialog();
+            }
+            LoadListView();
+        }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

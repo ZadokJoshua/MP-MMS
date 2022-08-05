@@ -8,7 +8,7 @@
         xmlns:Syncfusion1="http://schemas.syncfusion.com/wpf" 
         xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf"
         mc:Ignorable="d"
-        Title="Create New Issue" Height="340" Width="500"
+        Title="Create New Issue" Height="370" Width="500"
         ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>

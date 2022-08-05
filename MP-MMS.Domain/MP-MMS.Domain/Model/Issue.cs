@@ -21,7 +21,7 @@ namespace MP_MMS.Domain.Model
         public virtual Employee? Employee { get; set; }
 
         public string? Priority { get; set; }
-        public DateOnly DueDate { get; set; }
+        public DateTime DueDate { get; set; }
 
         public bool IsCompleted { get; set; }
     }

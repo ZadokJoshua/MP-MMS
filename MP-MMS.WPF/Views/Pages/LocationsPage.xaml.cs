@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MP_MMS.WPF.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace MP_MMS.WPF.Views.Pages
         public LocationsPage()
         {
             InitializeComponent();
+        }
+
+        private void AddLocation_Click(object sender, RoutedEventArgs e)
+        {
+            var addLocationWindow = new AddLocation();
+            addLocationWindow.ShowDialog();
         }
     }
 }

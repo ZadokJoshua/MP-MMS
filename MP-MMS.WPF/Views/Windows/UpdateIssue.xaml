@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" 
         mc:Ignorable="d"
-        Title="UpdateIssue" Height="370" Width="500"
+        Title="UpdateIssue" Height="390" Width="500"
         ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>

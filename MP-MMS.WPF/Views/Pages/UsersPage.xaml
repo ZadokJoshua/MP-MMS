@@ -81,9 +81,9 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                        <GridViewColumn Header="Role" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding FirstName}" Width="300"/>
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="200"/>
+                        <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="200"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="300"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -92,7 +92,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#568CD9">
+                                                Background="#568CD9"
+                                                Click="UpdateUser_Click">
                                             <Image  Source="/Images/pagesicons/edit.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>
@@ -100,7 +101,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#F44336">
+                                                Background="#F44336"
+                                                Click="DeleteUser_Click">
                                             <Image  Source="/Images/pagesicons/delete.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
         mc:Ignorable="d"
-        Title="Updat User" Height="290" Width="500"
+        Title="Updat User" Height="310" Width="500"
         ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -26,22 +26,27 @@
         <StackPanel Grid.Column="1" >
             <Label Content="First Name"/>
             <Syncfusion:SfTextBoxExt Watermark="James"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtFirstName"/>
             <Label Content="Last Name"/>
             <Syncfusion:SfTextBoxExt Watermark="Bond"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtLastName"/>
             <Label Content="Role"/>
             <Syncfusion:SfTextBoxExt Watermark="Mechanic"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtRole"/>
             <Label Content="Email"/>
             <Syncfusion:SfTextBoxExt Watermark="james007@outlook.com"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtEmail"/>
 
             <Syncfusion1:ButtonAdv Margin="5 10"
                                   Label="Update User"
                                   Foreground="White"
                                   Background="#4A88DA"
-                                  SmallIcon="/Images/pagesicons/edit.png"/>
+                                  SmallIcon="/Images/pagesicons/edit.png"
+                                   Click="UpdateUser_Click"/>
             
             <Syncfusion1:ButtonAdv Margin="5 0"
                                   Label="Delete Part"
