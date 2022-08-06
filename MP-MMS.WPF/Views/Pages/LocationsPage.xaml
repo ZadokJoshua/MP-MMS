@@ -49,7 +49,8 @@
                                      Height="30"
                                      Grid.Column="0"
                                      FontSize="16"
-                                     VerticalAlignment="Center"/>
+                                     VerticalAlignment="Center"
+                                     x:Name="txtSearch"/>
 
 
 
@@ -76,12 +77,12 @@
             </Button>
         </Grid>
 
-        <ListView x:Name="partsListView" Grid.Row="2">
+        <ListView x:Name="locationsListView" Grid.Row="2">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding FirstName}" Width="300"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="300"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -90,7 +91,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#568CD9">
+                                                Background="#568CD9"
+                                                Click="UpdateLocation_Click">
                                             <Image  Source="/Images/pagesicons/edit.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>
@@ -98,7 +100,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#F44336">
+                                                Background="#F44336"
+                                                Click="DeleteLocation_Click">
                                             <Image  Source="/Images/pagesicons/delete.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MP_MMS.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace MP_MMS.WPF.Views.Windows
     /// </summary>
     public partial class UpdateLocation : Window
     {
-        public UpdateLocation()
+        private Location location;
+        public UpdateLocation(Location location)
         {
             InitializeComponent();
         }
