@@ -28,16 +28,19 @@
             <StackPanel Grid.Column="1" >
                 <Label Content="Name"/>
                 <Syncfusion1:SfTextBoxExt Watermark="Workshop 1"
-                                     Margin="5 0"/>
+                                          Margin="5 0"
+                                          x:Name="txtName"/>
                 <Label Content="Address"/>
                 <Syncfusion2:SfTextBoxExt Watermark="Port Harcourt, River's state."
-                                     Margin="5 0"/>
+                                          Margin="5 0"
+                                          x:Name="txtAddress"/>
 
                 <Syncfusion:ButtonAdv Margin="5 10"
                                   Label="Add Part"
                                   Foreground="White"
                                   Background="#3D8421"
-                                  SmallIcon="/Images/pagesicons/add.png"/>
+                                  SmallIcon="/Images/pagesicons/add.png"
+                                      Click="AddLocation_Click"/>
 
             </StackPanel>
         </Grid>

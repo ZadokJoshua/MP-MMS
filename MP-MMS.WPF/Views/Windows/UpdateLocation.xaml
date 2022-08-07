@@ -28,10 +28,12 @@
             <StackPanel Grid.Column="1" >
                 <Label Content="Name"/>
                 <Syncfusion1:SfTextBoxExt Watermark="Workshop 1"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                          x:Name="txtName"/>
                 <Label Content="Address"/>
                 <Syncfusion1:SfTextBoxExt Watermark="Port Harcourt, River's state."
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                          x:Name="txtAddress"/>
 
                 <Syncfusion:ButtonAdv Margin="5 10"
                                   Label="Update Location"

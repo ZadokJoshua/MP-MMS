@@ -29,6 +29,8 @@ namespace MP_MMS.WPF.Views.Pages
             InitializeComponent();
 
             locations = new List<Location>();
+
+            LoadListView();
         }
 
         private void AddLocation_Click(object sender, RoutedEventArgs e)

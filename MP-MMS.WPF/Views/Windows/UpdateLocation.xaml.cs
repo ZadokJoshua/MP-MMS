@@ -1,4 +1,5 @@
-﻿using MP_MMS.Domain.Model;
+﻿using MP_MMS.Data;
+using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,41 @@ namespace MP_MMS.WPF.Views.Windows
         public UpdateLocation(Location location)
         {
             InitializeComponent();
+            this.location = location;
+            txtName.Text = location.Name;
+            txtAddress.Text = location.Address;
+        }
+
+        private void UpdateLocation_Click(object sender, RoutedEventArgs e)
+        {
+            location.Name = txtName.Text;
+            location.Address = txtAddress.Text;
+
+            using (var context = new MPMMSDbContext())
+            {
+                context.Locations.Update(location);
+                context.SaveChanges();
+            }
+
+            this.Hide();
+        }
+
+        private void DeleteLocation_Click(object sender, RoutedEventArgs e)
+        {
+            string message = $"Do you want to delete {location.Name}'s data?";
+            string title = "Delete Location";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+            if (result is MessageBoxResult.Yes)
+            {
+                using (var context = new MPMMSDbContext())
+                {
+                    context.Locations.Remove(location);
+                    context.SaveChanges();
+                }
+            }
+
+            this.Hide();
         }
     }
 }

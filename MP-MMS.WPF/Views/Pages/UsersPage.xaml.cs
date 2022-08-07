@@ -27,9 +27,7 @@ namespace MP_MMS.WPF.Views.Pages
         public UsersPage()
         {
             InitializeComponent();
-
             employees = new List<Employee>();
-
             LoadListView();
         }
 
@@ -39,7 +37,6 @@ namespace MP_MMS.WPF.Views.Pages
             addUserWindow.ShowDialog();
             LoadListView();
         }
-
 
         void LoadListView()
         {
