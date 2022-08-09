@@ -40,7 +40,7 @@ namespace MP_MMS.WPF.Views.Windows
                 context.SaveChanges();
             }
 
-            this.Hide();
+            Close();
         }
     }
 }

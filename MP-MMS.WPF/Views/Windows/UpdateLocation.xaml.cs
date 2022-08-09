@@ -41,7 +41,7 @@ namespace MP_MMS.WPF.Views.Windows
                 context.SaveChanges();
             }
 
-            this.Hide();
+            Close();
         }
 
         private void DeleteLocation_Click(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace MP_MMS.WPF.Views.Windows
                 }
             }
 
-            this.Hide();
+            Close();
         }
     }
 }

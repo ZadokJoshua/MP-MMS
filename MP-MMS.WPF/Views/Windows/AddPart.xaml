@@ -25,16 +25,20 @@
         <StackPanel Grid.Column="1" >
             <Label Content="Name"/>
             <Syncfusion:SfTextBoxExt Watermark="Welding rod"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtName"/>
             <Label Content="Manufacturer"/>
             <Syncfusion:SfTextBoxExt Watermark="Polyteric Systems"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtManufacturer"/>
             <Label Content="Serial Number"/>
             <Syncfusion:SfTextBoxExt Watermark="00-00-123"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtSerialNumber"/>
             <Label Content="Model Number"/>
             <Syncfusion:SfTextBoxExt Watermark="00-00-ABC"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtModelNumber"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -44,13 +48,13 @@
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
                     <Label Content="Category"/>
-                    <Syncfusion:ComboBoxAdv/>
+                    <Syncfusion:ComboBoxAdv x:Name="cBoxCategory"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
                     <Label Content="Location "/>
-                    <Syncfusion:ComboBoxAdv/>
+                    <Syncfusion:ComboBoxAdv x:Name="cBoxLocation"/>
                 </StackPanel>
             </Grid>
 
@@ -64,19 +68,19 @@
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
                     <Label Content="Cost per Unit (₦)"/>
-                    <Syncfusion:IntegerTextBox />
+                    <Syncfusion:IntegerTextBox x:Name="txtCostPerUnit"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
                     <Label Content="Quantity "/>
-                    <Syncfusion:IntegerTextBox />
+                    <Syncfusion:IntegerTextBox x:Name="txtQuantity"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" 
                             Margin="5 0">
                     <Label Content="Date Added"/>
-                    <Syncfusion:SfDatePicker/>
+                    <Syncfusion:SfDatePicker x:Name="txtDateAdded"/>
                 </StackPanel>
             </Grid>
 
@@ -84,7 +88,8 @@
                                   Label="Add Part"
                                   Foreground="White"
                                   Background="#3D8421"
-                                  SmallIcon="/Images/pagesicons/add.png"/>
+                                  SmallIcon="/Images/pagesicons/add.png"
+                                  Click="AddPart_Click"/>
 
         </StackPanel>
     </Grid>

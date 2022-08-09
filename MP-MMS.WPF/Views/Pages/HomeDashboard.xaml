@@ -19,11 +19,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="400"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Did you Know https://api-ninjas.com/api/facts"
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="30"/>
+                <WpfPlot Name="Wpfplot1"/>
                 <Syncfusion:CalendarEdit Grid.Column="1" Margin="30"/>
             </Grid>
 

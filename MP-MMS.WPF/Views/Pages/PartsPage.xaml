@@ -101,15 +101,15 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                        <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                        <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Role}" Width="100"/>
-                        <GridViewColumn Header="Location" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
-                        <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
-                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
-                        <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding ManagerId}" Width="100"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding Manufacturer}" Width="100"/>
+                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding SerialNumber}" Width="100"/>
+                        <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding ModelNumber}" Width="100"/>
+                        <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}" Width="100"/>
+                        <GridViewColumn Header="Location" DisplayMemberBinding="{Binding LocationId}" Width="100"/>
+                        <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding UnitCost}" Width="100"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
+                        <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding DateAdded, StringFormat='{}{0:dd.MM.yyyy}'}" Width="100"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

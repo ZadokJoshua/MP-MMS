@@ -50,7 +50,8 @@
                                      Grid.Column="0"
                                      FontSize="16"
                                      VerticalAlignment="Center"
-                                     x:Name="txtSearch"/>
+                                     x:Name="txtSearch"
+                                     TextChanged="SearchBox_TextChanged"/>
 
 
 

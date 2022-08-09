@@ -1,4 +1,6 @@
-﻿using MP_MMS.WPF.Views.Windows;
+﻿using MP_MMS.Data;
+using MP_MMS.Domain.Model;
+using MP_MMS.WPF.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,26 +23,26 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
-        IEnumerable<Friends> FriendsList = new List<Friends>()
-        {
-        new Friends()
-        {
-            FirstName = "Zadok",
-            LastName = "Samuel"
-
-        },
-        new Friends()
-        {
-            FirstName = "Zadok",
-            LastName = "Samuel"
-        }
-    };
-        
+        private IEnumerable<Part> parts;
 
         public PartsPage()
         {
             InitializeComponent();
-            partsListView.ItemsSource = FriendsList;
+
+            LoadListView();
+        }
+
+        private void LoadListView()
+        {
+            using (MPMMSDbContext context = new())
+            {
+                parts = context.Parts.ToList();
+            }
+
+            if(parts != null)
+            {
+                partsListView.ItemsSource = parts;
+            }
         }
 
         private void ImportCSV_Click(object sender, RoutedEventArgs e)
@@ -52,13 +54,11 @@ namespace MP_MMS.WPF.Views.Pages
         {
             var addPartWindow = new AddPart();
             addPartWindow.ShowDialog();
-        }
-    }
 
-    public class Friends
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string ImageLocation { get; set; }
+            LoadListView();
+        }
+
+
+
     }
 }

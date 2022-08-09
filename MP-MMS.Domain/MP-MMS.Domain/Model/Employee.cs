@@ -12,5 +12,10 @@ namespace MP_MMS.Domain.Model
         public string? Email { get; set; }
 
         public ICollection<Issue> Issues { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

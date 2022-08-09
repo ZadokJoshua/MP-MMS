@@ -9,11 +9,10 @@ namespace MP_MMS.Domain.Model
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Manufacturer { get; set; }
-        public int? SerialNumber { get; set; }
-        public int? ModelNumber { get; set; }
+        public string? SerialNumber { get; set; }
+        public string? ModelNumber { get; set; }
         public string? Category { get; set; }
 
-        public string LocationName { get; set; }
         public int LocationId { get; set; }
         [ForeignKey("LocationId")]
         public virtual Location Location { get; set; }
@@ -24,5 +23,10 @@ namespace MP_MMS.Domain.Model
 
 
         public ICollection<Issue> Issues { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

@@ -4,6 +4,7 @@ using MP_MMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MP_MMS.Data.Migrations
 {
     [DbContext(typeof(MPMMSDbContext))]
-    partial class MPMMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220808135122_removingWrongColumn")]
+    partial class removingWrongColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,8 +126,8 @@ namespace MP_MMS.Data.Migrations
                     b.Property<string>("Manufacturer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ModelNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ModelNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -133,8 +135,8 @@ namespace MP_MMS.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("SerialNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SerialNumber")
+                        .HasColumnType("int");
 
                     b.Property<double>("UnitCost")
                         .HasColumnType("float");

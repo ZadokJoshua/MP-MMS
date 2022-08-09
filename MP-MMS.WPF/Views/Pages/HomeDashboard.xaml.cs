@@ -23,6 +23,16 @@ namespace MP_MMS.WPF.Views.Pages
         public HomeDashboard()
         {
             InitializeComponent();
+            Plot();
         }
+
+        void Plot()
+        {
+            double[] dataX = new double[] { 1, 2, 3, 4, 5 };
+            double[] dataY = new double[] { 1, 4, 9, 16, 25 };
+            Wpfplot1.Plot.AddScatter(dataX, dataY);
+            Wpfplot1.Refresh();
+        }
+
     }
 }
