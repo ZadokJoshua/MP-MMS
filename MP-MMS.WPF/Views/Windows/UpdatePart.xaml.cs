@@ -1,4 +1,5 @@
-﻿using MP_MMS.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace MP_MMS.WPF.Views.Windows
             "Seal",
             "Others"
         };
+
         public UpdatePart(Part part)
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace MP_MMS.WPF.Views.Windows
 
             cBoxCategory.ItemsSource = categories;
             cBoxCategory.SelectedItem = part.Category;
-            BindComboBox();
+            BindComboBox(part.LocationId);
             cBoxLocation.SelectedItem = part.LocationId;
 
             txtCostPerUnit.Value = (long?)part.UnitCost;
@@ -64,7 +66,7 @@ namespace MP_MMS.WPF.Views.Windows
 
             using (MPMMSDbContext context = new())
             {
-                context.Parts.Add(part);
+                context.Parts.Update(part);
                 context.SaveChanges();
             }
 
@@ -89,14 +91,23 @@ namespace MP_MMS.WPF.Views.Windows
             Close();
         }
 
-        void BindComboBox()
+        private async void BindComboBox(int locationId)
         {
             using (MPMMSDbContext context = new())
             {
-                locations = context.Locations.ToList();
+                locations = await context.Locations.ToListAsync();
             }
 
             cBoxLocation.ItemsSource = locations;
+
+            foreach (var dbLocation in locations)
+            {
+                if (dbLocation.Id == locationId)
+                {
+                    cBoxLocation.SelectedItem = dbLocation;
+                    break;
+                }
+            }
         }
     }
 }
