@@ -5,11 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP-MMS.Domain", "MP-MMS.Domain\MP-MMS.Domain.csproj", "{4E038E95-1808-462D-9ABA-5AA96BAD4E5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonReviewApp", "..\PokemonReviewApp\PokemonReviewApp.csproj", "{BD57AA4B-81CE-4B88-98F0-86E4DF4187D8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP-MMS.WPF", "..\MP-MMS.WPF\MP-MMS.WPF.csproj", "{0D06B39A-6DC6-422B-939B-70DF5D540C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP-MMS.Data", "..\MP-MMS.Data\MP-MMS.Data.csproj", "{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP-MMS.Data", "..\MP-MMS.Data\MP-MMS.Data.csproj", "{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{4E038E95-1808-462D-9ABA-5AA96BAD4E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E038E95-1808-462D-9ABA-5AA96BAD4E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E038E95-1808-462D-9ABA-5AA96BAD4E5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD57AA4B-81CE-4B88-98F0-86E4DF4187D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD57AA4B-81CE-4B88-98F0-86E4DF4187D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD57AA4B-81CE-4B88-98F0-86E4DF4187D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD57AA4B-81CE-4B88-98F0-86E4DF4187D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D06B39A-6DC6-422B-939B-70DF5D540C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0D06B39A-6DC6-422B-939B-70DF5D540C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D06B39A-6DC6-422B-939B-70DF5D540C69}.Release|Any CPU.ActiveCfg = Release|Any CPU

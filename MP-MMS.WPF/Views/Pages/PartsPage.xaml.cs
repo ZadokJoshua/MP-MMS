@@ -47,7 +47,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void ImportCSV_Click(object sender, RoutedEventArgs e)
         {
-
+            //TODO - Import csv file functionalty
         }
 
         private void AddPart_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,37 @@ namespace MP_MMS.WPF.Views.Pages
             LoadListView();
         }
 
+        private void UpdatePart_Click(object sender, RoutedEventArgs e)
+        {
+            Part selectedPart = (Part)partsListView.SelectedItem;
+            if (selectedPart != null)
+            {
+                var updatePartWindow = new UpdatePart(selectedPart);
+                updatePartWindow.ShowDialog();
+            }
+            LoadListView();
+        }
 
+        private void DeletePart_Click(object sender, RoutedEventArgs e)
+        {
+            Part selectedPart = (Part)partsListView.SelectedItem;
+            if (selectedPart != null)
+            {
+                string message = $"Do you want to delete {selectedPart.Name}'s data?";
+                string title = "Delete Item";
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+                if (result is MessageBoxResult.Yes)
+                {
+                    using (var context = new MPMMSDbContext())
+                    {
+                        context.Parts.Remove(selectedPart);
+                        context.SaveChanges();
+                    }
+                }
+            }
 
+            LoadListView();
+        }
     }
 }

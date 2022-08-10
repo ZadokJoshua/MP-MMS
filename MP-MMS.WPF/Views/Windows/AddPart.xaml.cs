@@ -38,7 +38,7 @@ namespace MP_MMS.WPF.Views.Windows
             "Seal",
             "Others"
         };
-        
+
 
         public AddPart()
         {

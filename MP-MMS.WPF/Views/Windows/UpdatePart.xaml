@@ -3,7 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" 
+        xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" 
+        xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" 
+        xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
         mc:Ignorable="d"
         Title="Update Part" Height="410" Width="500"
         ResizeMode="NoResize">
@@ -26,16 +29,20 @@
         <StackPanel Grid.Column="1" >
             <Label Content="Name"/>
             <Syncfusion:SfTextBoxExt Watermark="Welding rod"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtName"/>
             <Label Content="Manufacturer"/>
             <Syncfusion:SfTextBoxExt Watermark="Polyteric Systems"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtManufacturer"/>
             <Label Content="Serial Number"/>
             <Syncfusion:SfTextBoxExt Watermark="00-00-123"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtSerialNumber"/>
             <Label Content="Model Number"/>
             <Syncfusion:SfTextBoxExt Watermark="00-00-ABC"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                     x:Name="txtModelNumber"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -45,13 +52,13 @@
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
                     <Label Content="Category"/>
-                    <Syncfusion1:ComboBoxAdv/>
+                    <Syncfusion1:ComboBoxAdv x:Name="cBoxCategory"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
-                    <Label Content="Location "/>
-                    <Syncfusion1:ComboBoxAdv/>
+                    <Label Content="Location"/>
+                    <Syncfusion1:ComboBoxAdv x:Name="cBoxLocation"/>
                 </StackPanel>
             </Grid>
 
@@ -64,20 +71,20 @@
 
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
-                    <Label Content="Cost per Unit (₦)"/>
-                    <Syncfusion2:IntegerTextBox />
+                    <Label Content="Unit Cost (₦)"/>
+                    <Syncfusion2:IntegerTextBox x:Name="txtCostPerUnit"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
                     <Label Content="Quantity "/>
-                    <Syncfusion2:IntegerTextBox />
+                    <Syncfusion2:IntegerTextBox x:Name="txtQuantity"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" 
                             Margin="5 0">
                     <Label Content="Date Added"/>
-                    <Syncfusion:SfDatePicker/>
+                    <Syncfusion:SfDatePicker x:Name="txtDateAdded"/>
                 </StackPanel>
             </Grid>
 
@@ -85,13 +92,15 @@
                                   Label="Update Part"
                                   Foreground="White"
                                   Background="#4A88DA"
-                                  SmallIcon="/Images/pagesicons/edit.png"/>
+                                  SmallIcon="/Images/pagesicons/edit.png"
+                                   Click="UpdatePart_Click"/>
 
             <Syncfusion1:ButtonAdv Margin="5 0"
                                   Label="Delete Part"
                                   Foreground="White"
                                   Background="#F44336"
-                                  SmallIcon="/Images/pagesicons/delete.png"/>
+                                  SmallIcon="/Images/pagesicons/delete.png"
+                                   Click="DeletePart_Click"/>
 
         </StackPanel>
     </Grid>

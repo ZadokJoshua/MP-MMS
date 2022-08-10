@@ -67,7 +67,7 @@
 
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
-                    <Label Content="Cost per Unit (₦)"/>
+                    <Label Content="Unit Cost (₦)"/>
                     <Syncfusion:IntegerTextBox x:Name="txtCostPerUnit"/>
                 </StackPanel>
 
