@@ -3,16 +3,7 @@ using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MP_MMS.WPF.Views.Windows
 {
@@ -61,7 +52,7 @@ namespace MP_MMS.WPF.Views.Windows
             part.Quantity = (int)txtQuantity.Value;
             part.DateAdded = Convert.ToDateTime(txtDateAdded.Value);
 
-            using (MPMMSDbContext context = new ())
+            using (MPMMSDbContext context = new())
             {
                 context.Parts.Add(part);
                 context.SaveChanges();

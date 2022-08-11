@@ -29,11 +29,13 @@
         <StackPanel Grid.Column="1" >
             <Label Content="Name"/>
             <Syncfusion1:SfTextBoxExt Watermark="Broken Welding rod"
-                                     Margin="5 0"/>
+                                     Margin="5 0"
+                                      x:Name="txtName"/>
             <Label Content="Description"/>
             <Syncfusion1:SfTextBoxExt Watermark="Fix destroyed joint..."
                                      Margin="5 0"
-                                      Height="60"/>
+                                      Height="60"
+                                      x:Name="txtDescription"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -44,13 +46,14 @@
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
                     <Label Content="Affected Part"/>
-                    <Syncfusion:ComboBoxAdv/>
+                    <Syncfusion:ComboBoxAdv x:Name="cBoxParts"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
                     <Label Content="Assigned to"/>
-                    <Syncfusion:ComboBoxAdv Margin="5 0"/>
+                    <Syncfusion:ComboBoxAdv Margin="5 0"
+                                            x:Name="cBoxEmployees"/>
                 </StackPanel>
             </Grid>
 
@@ -64,23 +67,27 @@
                 <StackPanel Grid.Column="0"
                              Margin="5 0">
                     <Label Content="Priority"/>
-                    <Syncfusion:ComboBoxAdv/>
+                    <Syncfusion:ComboBoxAdv x:Name="cBoxPriority"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" 
                             Margin="5 0">
                     <Label Content="Due Date"/>
-                    <Syncfusion1:SfDatePicker Margin="5 0"/>
+                    <Syncfusion1:SfDatePicker Margin="5 0"
+                                              x:Name="txtDueDate"/>
                 </StackPanel>
             </Grid>
 
-            <CheckBox Content="Completed" Margin="5 10"/>
+            <CheckBox Content="Completed" Margin="5 10"
+                      x:Name="checkBoxCompleted"/>
 
             <Syncfusion:ButtonAdv Margin="5 0"
                                   Label="Create Issue"
                                   Foreground="White"
                                   Background="#3D8421"
-                                  SmallIcon="/Images/pagesicons/add.png"/>
+                                  SmallIcon="/Images/pagesicons/add.png"
+                                  x:Name="addButton"
+                                  Click="AddButton_Click"/>
 
         </StackPanel>
     </Grid>

@@ -1,20 +1,10 @@
 ﻿using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MP_MMS.WPF.Views.Pages
 {
@@ -39,7 +29,7 @@ namespace MP_MMS.WPF.Views.Pages
                 parts = context.Parts.ToList();
             }
 
-            if(parts != null)
+            if (parts != null)
             {
                 partsListView.ItemsSource = parts;
             }
@@ -89,6 +79,12 @@ namespace MP_MMS.WPF.Views.Pages
             }
 
             LoadListView();
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var filteredList = parts.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            partsListView.ItemsSource = filteredList;
         }
     }
 }

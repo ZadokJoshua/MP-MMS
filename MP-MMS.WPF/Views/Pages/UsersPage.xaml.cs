@@ -1,20 +1,10 @@
 ﻿using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MP_MMS.WPF.Views.Pages
 {
@@ -45,7 +35,7 @@ namespace MP_MMS.WPF.Views.Pages
                 employees = context.Employees.ToList<Employee>();
             }
 
-            if(employees != null)
+            if (employees != null)
             {
                 partsListView.ItemsSource = employees;
             }
@@ -71,7 +61,7 @@ namespace MP_MMS.WPF.Views.Pages
                 string title = "Delete User";
                 MessageBoxButton buttons = MessageBoxButton.YesNo;
                 var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
-                if(result is MessageBoxResult.Yes)
+                if (result is MessageBoxResult.Yes)
                 {
                     using (var context = new MPMMSDbContext())
                     {

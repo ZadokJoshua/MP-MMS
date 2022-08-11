@@ -3,7 +3,6 @@ using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
 namespace MP_MMS.WPF.Views.Windows
