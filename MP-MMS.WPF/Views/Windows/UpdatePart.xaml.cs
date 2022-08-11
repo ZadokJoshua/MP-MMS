@@ -43,8 +43,6 @@ namespace MP_MMS.WPF.Views.Windows
             cBoxCategory.ItemsSource = categories;
             cBoxCategory.SelectedItem = part.Category;
             BindComboBox(part.LocationId);
-            cBoxLocation.SelectedItem = part.LocationId;
-
             txtCostPerUnit.Value = (long?)part.UnitCost;
             txtQuantity.Value = (long?)part.Quantity;
             txtDateAdded.Value = part.DateAdded;
