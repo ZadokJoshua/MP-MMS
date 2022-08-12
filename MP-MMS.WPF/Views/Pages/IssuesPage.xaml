@@ -48,7 +48,9 @@
                                      Height="30"
                                      Grid.Column="0"
                                      FontSize="16"
-                                     VerticalAlignment="Center"/>
+                                     VerticalAlignment="Center"
+                                     x:Name="txtSearch"
+                                     TextChanged="SearchBox_TextChanged"/>
 
             
 
@@ -76,19 +78,19 @@
             </Button>
         </Grid>
 
-        <ListView x:Name="partsListView" Grid.Row="2">
+        <ListView x:Name="issuesListView" Grid.Row="2">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="150"/>
-                        <GridViewColumn Header="Part" DisplayMemberBinding="{Binding FirstName}" Width="150"/>
-                        <GridViewColumn Header="Assigned To" DisplayMemberBinding="{Binding FirstName}" Width="150"/>
-                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding LastName}" Width="150"/>
-                        <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding ManagerId}" Width="150"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                        <GridViewColumn Header="Part" DisplayMemberBinding="{Binding PartId}" Width="150"/>
+                        <GridViewColumn Header="Assigned To" DisplayMemberBinding="{Binding EmployeeId}" Width="150"/>
+                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Priority}" Width="150"/>
+                        <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate, StringFormat='{}{0:dd/MM/yyyy}'}" Width="150"/>
                         <GridViewColumn Header="Completed" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox/>
+                                    <CheckBox IsChecked="{Binding IsCompleted}" IsHitTestVisible="False"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -100,7 +102,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#568CD9">
+                                                Background="#568CD9"
+                                                Click="UpdateIssue_Click">
                                             <Image  Source="/Images/pagesicons/edit.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>
@@ -108,7 +111,8 @@
                                                 Width="30"
                                                 Margin="5 0"
                                                 BorderThickness="0"
-                                                Background="#F44336">
+                                                Background="#F44336"
+                                                Click="DeleteIssue_Click">
                                             <Image  Source="/Images/pagesicons/delete.png"
                                                     Style="{StaticResource ButtonIconsStyle}"/>
                                         </Button>

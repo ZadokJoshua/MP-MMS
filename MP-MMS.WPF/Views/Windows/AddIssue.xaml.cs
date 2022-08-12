@@ -15,7 +15,7 @@ namespace MP_MMS.WPF.Views.Windows
         Issue issue = new();
         private List<Part> parts;
         private List<Employee> employees;
-        IList<string> priority = new List<string>()
+        private readonly IList<string> priority = new List<string>()
         {
             "Low",
             "Medium",
@@ -44,6 +44,8 @@ namespace MP_MMS.WPF.Views.Windows
                 context.Issues.Add(issue);
                 context.SaveChanges();
             }
+
+            Close();
 
         }
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" 
         xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" 
         xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" 
-        xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+        xmlns:Syncfusion2="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion3="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="Update Part" Height="410" Width="500"
         ResizeMode="NoResize">
@@ -36,7 +36,7 @@
                                      Margin="5 0"
                                      x:Name="txtManufacturer"/>
             <Label Content="Serial Number"/>
-            <Syncfusion:SfTextBoxExt Watermark="00-00-123"
+            <Syncfusion3:SfTextBoxExt Watermark="00-00-123"
                                      Margin="5 0"
                                      x:Name="txtSerialNumber"/>
             <Label Content="Model Number"/>
