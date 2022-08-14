@@ -4,6 +4,7 @@ using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,7 +15,10 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class IssuesPage : Page
     {
-        IList<Issue> issues;
+        private IList<Issue> issues;
+        private IList<Part> parts; 
+        private IList<Employee> employees;
+
         public IssuesPage()
         {
             InitializeComponent();
@@ -26,6 +30,8 @@ namespace MP_MMS.WPF.Views.Pages
             using (MPMMSDbContext context = new())
             {
                 issues = await context.Issues.ToListAsync();
+                parts = await context.Parts.ToListAsync();
+                employees = await context.Employees.ToListAsync();
             }
 
             if (issues != null)

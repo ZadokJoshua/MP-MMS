@@ -46,7 +46,8 @@ namespace MP_MMS.WPF.Views.Windows
             part.ModelNumber = txtModelNumber.Text;
             part.Category = cBoxCategory.Text;
 
-            part.LocationId = ((Location)cBoxLocation.SelectedItem).Id;
+            if (cBoxLocation.SelectedItem != null) { part.LocationId = ((Location)cBoxLocation.SelectedItem).Id; }
+
 
             part.UnitCost = (double)txtCostPerUnit.Value;
             part.Quantity = (int)txtQuantity.Value;

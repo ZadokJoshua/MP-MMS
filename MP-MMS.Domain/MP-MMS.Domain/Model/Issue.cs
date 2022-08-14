@@ -12,17 +12,20 @@ namespace MP_MMS.Domain.Model
 
         public int PartId { get; set; }
         [ForeignKey("PartId")]
-        public virtual Part? Part { get; set; }
+        public virtual Part Part { get; set; }
 
         public int EmployeeId { get; set; }
         [ForeignKey("EmployeeId")]
-        public virtual Employee? Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         public string? Priority { get; set; }
         public DateTime DueDate { get; set; }
 
         public bool IsCompleted { get; set; }
 
-
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

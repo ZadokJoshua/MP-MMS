@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ScottPlot.WPF" Version="4.1.52" />
     <PackageReference Include="syncfusion.ui.wpf.net" Version="20.2.0.40" />
   </ItemGroup>
 

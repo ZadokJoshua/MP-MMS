@@ -13,12 +13,14 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
-        private IEnumerable<Part> parts;
+        private IList<Part> parts;
+        private IList<Location> locations;
+        
+        
 
         public PartsPage()
         {
             InitializeComponent();
-
             LoadListView();
         }
 
@@ -27,12 +29,15 @@ namespace MP_MMS.WPF.Views.Pages
             using (MPMMSDbContext context = new())
             {
                 parts = context.Parts.ToList();
+                locations = context.Locations.ToList();
             }
 
             if (parts != null)
             {
                 partsListView.ItemsSource = parts;
             }
+
+
         }
 
         private void ImportCSV_Click(object sender, RoutedEventArgs e)

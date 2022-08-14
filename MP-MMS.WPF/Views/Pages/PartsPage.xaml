@@ -108,7 +108,7 @@
                         <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding SerialNumber}" Width="100"/>
                         <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding ModelNumber}" Width="100"/>
                         <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}" Width="100"/>
-                        <GridViewColumn Header="Location" DisplayMemberBinding="{Binding LocationId}" Width="100"/>
+                        <GridViewColumn x:Name="LocationNameColumn" Header="Location" DisplayMemberBinding="{Binding Location}" Width="100"/>
                         <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding UnitCost}" Width="100"/>
                         <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
                         <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding DateAdded, StringFormat='{}{0:dd/MM/yyyy}'}" Width="100"/>

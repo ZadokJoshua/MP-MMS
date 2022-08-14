@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Drawing;
+using System.Linq;
+using System.Windows.Controls;
+using Plotly.NET.CSharp;
 
 namespace MP_MMS.WPF.Views.Pages
 {
@@ -15,10 +18,8 @@ namespace MP_MMS.WPF.Views.Pages
 
         void Plot()
         {
-            double[] dataX = new double[] { 1, 2, 3, 4, 5 };
-            double[] dataY = new double[] { 1, 4, 9, 16, 25 };
-            Wpfplot1.Plot.AddScatter(dataX, dataY);
-            Wpfplot1.Refresh();
+            
+
         }
 
     }
