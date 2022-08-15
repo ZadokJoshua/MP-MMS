@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MP_MMS.Data;
 using MP_MMS.Domain.Model;
-using ScottPlot.Plottable;
 using Syncfusion.Windows.Tools;
 using Syncfusion.XlsIO.Parser.Biff_Records.Formula;
 using System;

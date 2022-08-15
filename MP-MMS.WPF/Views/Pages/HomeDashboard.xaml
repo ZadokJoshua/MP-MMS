@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MP_MMS.WPF.Views.Pages" xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+      xmlns:local="clr-namespace:MP_MMS.WPF.Views.Pages" xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomeDashboard">
@@ -15,12 +15,12 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="400"/>
-                </Grid.ColumnDefinitions>
-                <WpfPlot Name="Wpfplot1"/>
-                <Syncfusion:CalendarEdit Grid.Column="1" Margin="30"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <chart:BarSeries YAxis="{Binding UnitCost}" x:Name="barChart"/>   
+            <Syncfusion:CalendarEdit Grid.Column="1" Margin="30"/>
             </Grid>
 
             <Grid Grid.Row="1">

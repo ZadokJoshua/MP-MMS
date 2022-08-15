@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
     <Compile Remove="Controls\**" />
     <EmbeddedResource Remove="Controls\**" />
