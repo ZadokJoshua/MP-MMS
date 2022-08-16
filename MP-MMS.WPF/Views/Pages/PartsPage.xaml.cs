@@ -13,9 +13,8 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
-        private IList<Part> parts;
-        private IList<Location> locations;
-        
+        public IList<Part> Parts { get; private set; }
+        public IList<Location> Locations { get; private set; }
         
 
         public PartsPage()
@@ -28,18 +27,16 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (MPMMSDbContext context = new())
             {
-                parts = context.Parts.ToList();
-                locations = context.Locations.ToList();
+                Parts = context.Parts.ToList();
+                Locations = context.Locations.ToList();
             }
 
-            if (parts != null)
+            if (Parts != null)
             {
-                partsListView.ItemsSource = parts;
+                partsListView.ItemsSource = Parts;
             }
-
-
         }
-
+        
         private void ImportCSV_Click(object sender, RoutedEventArgs e)
         {
             //TODO - Import csv file functionalty
@@ -64,6 +61,7 @@ namespace MP_MMS.WPF.Views.Pages
             LoadListView();
         }
 
+        
         private void DeletePart_Click(object sender, RoutedEventArgs e)
         {
             Part selectedPart = (Part)partsListView.SelectedItem;
@@ -88,7 +86,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = parts.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Parts.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             partsListView.ItemsSource = filteredList;
         }
     }

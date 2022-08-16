@@ -13,11 +13,12 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class UsersPage : Page
     {
-        private List<Employee> employees;
+        public IList<Employee> Employees { get; private set; }
+
         public UsersPage()
         {
             InitializeComponent();
-            employees = new List<Employee>();
+            Employees = new List<Employee>();
             LoadListView();
         }
 
@@ -32,12 +33,12 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (var context = new MPMMSDbContext())
             {
-                employees = context.Employees.ToList<Employee>();
+                Employees = context.Employees.ToList<Employee>();
             }
 
-            if (employees != null)
+            if (Employees != null)
             {
-                partsListView.ItemsSource = employees;
+                partsListView.ItemsSource = Employees;
             }
         }
 
@@ -76,7 +77,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             partsListView.ItemsSource = filteredList;
         }
     }

@@ -19,7 +19,7 @@ namespace MP_MMS.WPF
             InitializeComponent();
 
             Home = new HomeDashboard();
-            ContentFrame.Content = Home;
+            ContentFrame.Content = new HomeDashboard();
             PartPage = new PartsPage();
             IssuePage = new IssuesPage();
             LocationPage = new LocationsPage();

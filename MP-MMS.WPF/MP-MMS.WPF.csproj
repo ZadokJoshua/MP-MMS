@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
     <Compile Remove="Controls\**" />
     <EmbeddedResource Remove="Controls\**" />
@@ -20,6 +22,7 @@
   <ItemGroup>
     <None Remove="Images\account.png" />
     <None Remove="Images\cog.png" />
+    <None Remove="Images\enter.png" />
     <None Remove="Images\home.png" />
     <None Remove="Images\locator.png" />
     <None Remove="Images\PagesIcons\add.png" />
@@ -36,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="2.88.0" />
     <PackageReference Include="syncfusion.ui.wpf.net" Version="20.2.0.40" />
   </ItemGroup>
 
@@ -49,6 +53,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\enter.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\home.png">

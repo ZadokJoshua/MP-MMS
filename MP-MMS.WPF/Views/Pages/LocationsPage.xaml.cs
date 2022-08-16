@@ -13,12 +13,12 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class LocationsPage : Page
     {
-        private List<Location> locations;
+        public IList<Location> Locations { get; private set; }
         public LocationsPage()
         {
             InitializeComponent();
 
-            locations = new List<Location>();
+            Locations = new List<Location>();
 
             LoadListView();
         }
@@ -34,12 +34,12 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (var context = new MPMMSDbContext())
             {
-                locations = context.Locations.ToList<Location>();
+                Locations = context.Locations.ToList<Location>();
             }
 
-            if (locations != null)
+            if (Locations != null)
             {
-                locationsListView.ItemsSource = locations;
+                locationsListView.ItemsSource = Locations;
             }
         }
 
@@ -78,7 +78,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = locations.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Locations.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             locationsListView.ItemsSource = filteredList;
         }
     }

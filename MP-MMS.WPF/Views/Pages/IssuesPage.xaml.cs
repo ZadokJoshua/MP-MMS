@@ -15,9 +15,9 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class IssuesPage : Page
     {
-        private IList<Issue> issues;
-        private IList<Part> parts; 
-        private IList<Employee> employees;
+        public IList<Issue> Issues { get; private set; }
+        public IList<Part> Parts { get; private set; }
+        public IList<Employee> Employees { get; private set; }
 
         public IssuesPage()
         {
@@ -29,14 +29,14 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (MPMMSDbContext context = new())
             {
-                issues = await context.Issues.ToListAsync();
-                parts = await context.Parts.ToListAsync();
-                employees = await context.Employees.ToListAsync();
+                Issues = await context.Issues.ToListAsync();
+                Parts = await context.Parts.ToListAsync();
+                Employees = await context.Employees.ToListAsync();
             }
 
-            if (issues != null)
+            if (Issues != null)
             {
-                issuesListView.ItemsSource = issues;
+                issuesListView.ItemsSource = Issues;
             }
         }
 
@@ -83,7 +83,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = issues.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Issues.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             issuesListView.ItemsSource = filteredList;
         }
     }

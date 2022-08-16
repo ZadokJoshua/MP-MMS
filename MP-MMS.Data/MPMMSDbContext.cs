@@ -17,7 +17,7 @@ namespace MP_MMS.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Initial Catalog=MP_MMS_DB");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Initial Catalog=MP_MMS_DB; Timeout=4000000");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
