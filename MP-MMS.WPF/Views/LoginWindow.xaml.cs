@@ -29,16 +29,7 @@ namespace MP_MMS.WPF.Views
         {
             InitializeComponent();
             MainWindow = new MainWindow();
-            //GetUsers();
         }
-
-        //private async void GetUsers()
-        //{
-        //    using (var context = new MPMMSDbContext())
-        //    {
-        //        Users = await context.Users.ToListAsync();
-        //    }
-        //}
 
         private void GrantAccess()
         {

@@ -5,27 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MP_MMS.WPF.Views"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="287" Width="320" 
+        Title="LoginWindow" Height="320" Width="320" 
         WindowStyle="None" ResizeMode="NoResize"
-        Background="{StaticResource BrushPrimaryColour1}"
+        Background="Transparent"
         WindowStartupLocation="CenterScreen">
-    <Grid Margin="30" VerticalAlignment="Center">
-        <StackPanel>
-            <DockPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" >
-                <Image Source="\images\repair.png" 
+    <Border CornerRadius="5" BorderBrush="{StaticResource BrushPrimaryColour2}" Background="{StaticResource BrushPrimaryColour1}" BorderThickness="2">
+        <Grid Margin="30" VerticalAlignment="Center">
+            <StackPanel>
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" >
+                        <Image Source="\images\repair.png" 
                            VerticalAlignment="Center"
-                           Height="20"/>
-                <Label Content="MP-MMS" 
+                           Height="25"/>
+                        <Label Content="MP-MMS" 
                            Foreground="White" 
                            Grid.Row="0" 
-                           FontSize="15" 
+                           FontSize="20" 
                            FontWeight="Bold"
                            FontFamily=" Arial"
                            VerticalContentAlignment="Center"/>
 
-                </StackPanel>
-                <Syncfusion:ButtonAdv x:Name="CloseAppBtn" SizeMode="Small"
+                    </StackPanel>
+                    <Syncfusion:ButtonAdv x:Name="CloseAppBtn" SizeMode="Small"
                                       DockPanel.Dock="Right"
                                   Background="#F44336"
                                   SmallIcon="\Images\cancel.png"
@@ -33,24 +34,30 @@
                                       Width="30"
                                       HorizontalAlignment="Right"
                                       Margin="5 0" Click="CloseAppBtn_Click"/>
-            </DockPanel>
-            <Label Content="" FontSize="12" x:Name="ErrorText" FontStyle="Italic" Foreground="#F44336" HorizontalAlignment="Center"/>
-            <Label Content="User Name"
+                </DockPanel>
+                <Label Content="" FontSize="12" x:Name="ErrorText" FontStyle="Italic" Foreground="#F44336" HorizontalAlignment="Center"/>
+                <Label Content="User Name"
                    Foreground="White" 
                            Grid.Row="0" 
                            FontSize="13" 
                            FontFamily=" Arial"/>
-            <Syncfusion:SfTextBoxExt Watermark="Admin1"  Margin="5 0"
-                                     x:Name="UsernameTxt"/>
-            <Label Content="Password"
+                <Syncfusion:SfTextBoxExt Watermark="Admin1"  Margin="5 0"
+                                     x:Name="UsernameTxt"
+                                     Height="30"
+                                     FontSize="13"
+                                     VerticalAlignment="Center"/>
+                <Label Content="Password"
                    Foreground="White" 
                            Grid.Row="0" 
                            FontSize="13" 
                            FontFamily=" Arial"/>
-            <PasswordBox Margin="5 0"
-                         x:Name="PasswordTxt"/>
+                <PasswordBox Margin="5 0"
+                         x:Name="PasswordTxt"
+                         Height="30"
+                         FontSize="13"
+                         VerticalContentAlignment="Center"/>
 
-            <Syncfusion:ButtonAdv x:Name="SubmitBtn" Label="Submit" 
+                <Syncfusion:ButtonAdv x:Name="SubmitBtn" Label="Submit" 
                                   Margin="5 15"
                                   Foreground="White"
                                   Background="{StaticResource BrushPrimaryColour2}"
@@ -58,13 +65,14 @@
                                   Height="30" 
                                   Click="SubmitBtn_Click"
                                   IsDefault="True"/>
-            <Label Content="© Polyteric Systems 2022" 
+                <Label Content="© Polyteric Systems 2022" 
                            Grid.Row="1" 
                            FontSize="10"
                            HorizontalAlignment="Right"
                            Foreground="White"
                            FontWeight="ExtraLight"/>
-        </StackPanel>
+            </StackPanel>
 
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

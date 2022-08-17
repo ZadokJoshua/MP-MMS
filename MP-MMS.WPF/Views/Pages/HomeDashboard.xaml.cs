@@ -18,7 +18,7 @@ namespace MP_MMS.WPF.Views.Pages
             InitializeComponent();
             ViewModel viewModel = new ViewModel();
             PieChartDisplay.DataContext = viewModel;
-            PieChartDisplay.Header = "Work Order Report";
+            PieChartDisplay.Header = "Issues Report";
             PieChartDisplay.Legend = new ChartLegend()
             {
                 DockPosition = ChartDock.Bottom,
