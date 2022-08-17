@@ -13,29 +13,30 @@ namespace MP_MMS.WPF.ChartResources
     {
         public List<Issue> Issues { get; set; }
         public List<IssuesHelper> Data { get; set; }
+        int[] arrOfWorkOrders = new int[2];
 
         public ViewModel()
         {
+            GetWO();
             Data = new List<IssuesHelper>()
             {
-                new IssuesHelper{ Name="Completed WO", Count=GetWO().Result[0]},
-                new IssuesHelper{ Name="Incomplete WO", Count=GetWO().Result[1]}
+                new IssuesHelper{ Name="Completed WO", Count= arrOfWorkOrders[0]},
+                new IssuesHelper{ Name="Incomplete WO", Count= arrOfWorkOrders[1]}
             };
         }
 
-        private async Task<int[]> GetWO()
+        private int[] GetWO()
         {
             int completeWO = 0;
             int incompleteWO = 0;
-            int[] arrOfWorkOrders = new int[2];
             using (MPMMSDbContext context = new())
             {
-                Issues = await context.Issues.ToListAsync();
+                Issues = context.Issues.ToList();
             }
 
             foreach(var issue in Issues)
             {
-                if(issue.IsCompleted == true)
+                if(issue.IsCompleted)
                 {
                     completeWO++;
                 }
@@ -47,7 +48,6 @@ namespace MP_MMS.WPF.ChartResources
 
             arrOfWorkOrders[0] = completeWO;
             arrOfWorkOrders[1] = incompleteWO;
-
             return arrOfWorkOrders;
         }
     }

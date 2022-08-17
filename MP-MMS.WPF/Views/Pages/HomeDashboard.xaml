@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
 
         <!--Upper Controls Section-->
+
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -22,15 +23,16 @@
             </Grid.ColumnDefinitions>
 
             <!--Chart-->
-            <chart:SfChart x:Name="PieChartDisplay">
-                
-            </chart:SfChart>
-            
+            <Border CornerRadius="10" Background="White" >
+                <chart:SfChart x:Name="PieChartDisplay" Margin="10">
+                </chart:SfChart>
+            </Border>
+
             <!--Events Region-->
-            <StackPanel Grid.Column="1" Margin="20" Background="White">
+            <StackPanel Grid.Column="1">
                 <TextBlock Text="Events" Foreground="{StaticResource BrushPrimaryColour2}" Margin="10" FontWeight="Bold"/>
             </StackPanel>
-            
+
         </Grid>
 
         <!--Lower Controls Section-->

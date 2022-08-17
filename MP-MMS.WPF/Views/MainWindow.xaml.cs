@@ -8,7 +8,6 @@ namespace MP_MMS.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public HomeDashboard Home { get; private set; }
         public PartsPage PartPage { get; private set; }
         public IssuesPage IssuePage { get; private set; }
         public LocationsPage LocationPage { get; private set; }
@@ -17,8 +16,6 @@ namespace MP_MMS.WPF
         public MainWindow()
         {
             InitializeComponent();
-
-            Home = new HomeDashboard();
             ContentFrame.Content = new HomeDashboard();
             PartPage = new PartsPage();
             IssuePage = new IssuesPage();
@@ -49,7 +46,7 @@ namespace MP_MMS.WPF
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Content = Home;
+            ContentFrame.Content = new HomeDashboard();
         }
     }
 }

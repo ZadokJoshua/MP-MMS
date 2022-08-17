@@ -29,16 +29,16 @@ namespace MP_MMS.WPF.Views
         {
             InitializeComponent();
             MainWindow = new MainWindow();
-            GetUsers();
+            //GetUsers();
         }
 
-        private async void GetUsers()
-        {
-            using (var context = new MPMMSDbContext())
-            {
-                Users = await context.Users.ToListAsync();
-            }
-        }
+        //private async void GetUsers()
+        //{
+        //    using (var context = new MPMMSDbContext())
+        //    {
+        //        Users = await context.Users.ToListAsync();
+        //    }
+        //}
 
         private void GrantAccess()
         {
@@ -56,6 +56,11 @@ namespace MP_MMS.WPF.Views
             bool userFound;
             var username = UsernameTxt.Text;
             var password = PasswordTxt.Password;
+
+            using (var context = new MPMMSDbContext())
+            {
+                Users = context.Users.ToList();
+            }
 
             userFound = Users.Any(user => user.UserName.Equals(username) && user.Password.Equals(password));
 

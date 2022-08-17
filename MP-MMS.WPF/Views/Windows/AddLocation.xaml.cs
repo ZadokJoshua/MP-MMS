@@ -17,6 +17,13 @@ namespace MP_MMS.WPF.Views.Windows
 
         private void AddLocation_Click(object sender, RoutedEventArgs e)
         {
+            //Location tt = new Location
+            //{
+            //    Address = "",
+            //    Id = 2,
+            //    Name = "",
+            //    Parts = null
+            //};
             location.Name = txtName.Text;
             location.Address = txtAddress.Text;
 
