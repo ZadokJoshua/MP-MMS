@@ -3,14 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:MP_MMS.WPF.Views.Pages" xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF" xmlns:vm="clr-namespace:MP_MMS.WPF.LiveChart"
+      xmlns:local="clr-namespace:MP_MMS.WPF.Views.Pages" xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomeDashboard">
-
-    <Page.Resources>
-        <vm:ViewModel x:Key="vm"/>
-    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,38 +15,17 @@
         </Grid.RowDefinitions>
 
         <!--Upper Controls Section-->
-        <Grid Grid.Row="0" DataContext="{StaticResource vm}">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="400"/>
             </Grid.ColumnDefinitions>
 
             <!--Chart-->
-            <chart:SfChart Header="Sales Record">
-                <chart:SfChart.PrimaryAxis>
-                    <chart:CategoryAxis/>
-                </chart:SfChart.PrimaryAxis>
-                <chart:SfChart.SecondaryAxis>
-                    <chart:NumericalAxis/>
-                </chart:SfChart.SecondaryAxis>
-                <!--Legends-->
-                <chart:SfChart.Legend>
-                    <chart:ChartLegend/>
-                </chart:SfChart.Legend>
+            <chart:SfChart x:Name="PieChartDisplay">
                 
-                <!--Binding to data-->
-                <chart:ColumnSeries Palette="Elite" ShowTooltip="True" Label="Product A" ItemsSource="{Binding Data}" XBindingPath="Year" YBindingPath="ProductA">
-                    <chart:ColumnSeries.AdornmentsInfo>
-                        <chart:ChartAdornmentInfo ShowLabel="True"/>
-                    </chart:ColumnSeries.AdornmentsInfo>
-                </chart:ColumnSeries>
-                <chart:ColumnSeries Palette="SandyBeach" ShowTooltip="True" Label="Product B" ItemsSource="{Binding Data}" XBindingPath="Year" YBindingPath="ProductB">
-                    <chart:ColumnSeries.AdornmentsInfo>
-                        <chart:ChartAdornmentInfo ShowLabel="True"/>
-                    </chart:ColumnSeries.AdornmentsInfo>
-                </chart:ColumnSeries>
             </chart:SfChart>
-
+            
             <!--Events Region-->
             <StackPanel Grid.Column="1" Margin="20" Background="White">
                 <TextBlock Text="Events" Foreground="{StaticResource BrushPrimaryColour2}" Margin="10" FontWeight="Bold"/>

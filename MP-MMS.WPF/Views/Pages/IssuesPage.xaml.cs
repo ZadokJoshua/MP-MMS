@@ -15,6 +15,7 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class IssuesPage : Page
     {
+        public AddIssue AddIssueWindow { get; set; }
         public IList<Issue> Issues { get; private set; }
         public IList<Part> Parts { get; private set; }
         public IList<Employee> Employees { get; private set; }
@@ -23,6 +24,7 @@ namespace MP_MMS.WPF.Views.Pages
         {
             InitializeComponent();
             LoadListView();
+            
         }
 
         private async void LoadListView()
@@ -42,9 +44,8 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void AddIssue_Click(object sender, RoutedEventArgs e)
         {
-            var addIssueWindow = new AddIssue();
-            addIssueWindow.ShowDialog();
-
+            AddIssueWindow = new();
+            AddIssueWindow.ShowDialog();
             LoadListView();
         }
 

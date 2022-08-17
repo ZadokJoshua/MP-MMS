@@ -1,14 +1,7 @@
-﻿using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using Microsoft.EntityFrameworkCore;
-using MP_MMS.Data;
-using MP_MMS.Domain.Model;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows;
+﻿using MP_MMS.WPF.ChartResources;
+using Syncfusion.UI.Xaml.Charts;
 using System.Windows.Controls;
+using PieSeries = Syncfusion.UI.Xaml.Charts.PieSeries;
 
 namespace MP_MMS.WPF.Views.Pages
 {
@@ -21,7 +14,26 @@ namespace MP_MMS.WPF.Views.Pages
         public HomeDashboard()
         {
             InitializeComponent();
+            ViewModel viewModel = new ViewModel();
+            PieChartDisplay.DataContext = viewModel;
+            PieChartDisplay.Header = "Work Order Report";
+            PieChartDisplay.Legend = new ChartLegend();
+
+            // Defining the PieSeries with adornments.
+            PieSeries series = new PieSeries();
+            series.XBindingPath = "Name";
+            series.YBindingPath = "Count";
+            series.ItemsSource = viewModel.Data;
+            series.AdornmentsInfo = new ChartAdornmentInfo()
+            {
+                ShowLabel = true
+            };
+            PieChartDisplay.Series.Add(series);
         }
+
+        
+
+
 
     }
 }

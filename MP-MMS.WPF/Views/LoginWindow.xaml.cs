@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using MP_MMS.Data;
+using MP_MMS.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,51 @@ namespace MP_MMS.WPF.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public MainWindow MainWindow  { get; set; }
+        public IList<User> Users { get; set; }
+
         public LoginWindow()
         {
             InitializeComponent();
+            MainWindow = new MainWindow();
+            GetUsers();
+        }
+
+        private async void GetUsers()
+        {
+            using (var context = new MPMMSDbContext())
+            {
+                Users = await context.Users.ToListAsync();
+            }
+        }
+
+        private void GrantAccess()
+        {
+            MainWindow.Show();
+            Close();
+        }
+
+        private void CloseAppBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void SubmitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            bool userFound;
+            var username = UsernameTxt.Text;
+            var password = PasswordTxt.Password;
+
+            userFound = Users.Any(user => user.UserName.Equals(username) && user.Password.Equals(password));
+
+            if (userFound)
+            {
+                GrantAccess();
+            }
+            else
+            {
+                ErrorText.Content = "Wrong Credentials";
+            }
         }
     }
 }

@@ -33,7 +33,17 @@ namespace MP_MMS.WPF.Views.Windows
             issue.Name = txtName.Text;
             issue.Description = txtDescription.Text;
             issue.PartId = ((Part)cBoxParts.SelectedItem).Id;
-            issue.EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id;
+            //issue.EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id;
+
+            if (cBoxEmployees.SelectedItem == null)
+            {
+                MessageBox.Show("You didn't assign the issue to anyone", "Error", MessageBoxButton.YesNo, MessageBoxImage.Error);
+            }
+            else
+            {
+                issue.EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id;
+            }
+            
             issue.Priority = cBoxPriority.Text;
             issue.DueDate = Convert.ToDateTime(txtDueDate.Value);
 

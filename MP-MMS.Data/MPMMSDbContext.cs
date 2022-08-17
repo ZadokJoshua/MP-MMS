@@ -14,6 +14,7 @@ namespace MP_MMS.Data
         public DbSet<Issue> Issues { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Part> Parts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
