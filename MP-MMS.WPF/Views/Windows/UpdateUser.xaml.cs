@@ -18,6 +18,10 @@ namespace MP_MMS.WPF.Views.Windows
             txtLastName.Text = employee.LastName;
             txtRole.Text = employee.Role;
             txtEmail.Text = employee.Email;
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void UpdateUser_Click(object sender, RoutedEventArgs e)

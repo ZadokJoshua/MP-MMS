@@ -36,6 +36,10 @@ namespace MP_MMS.WPF.Views.Windows
             InitializeComponent();
             BindComboBox();
             cBoxCategory.ItemsSource = categories;
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void AddPart_Click(object sender, RoutedEventArgs e)

@@ -9,7 +9,7 @@
         WindowStyle="None" ResizeMode="NoResize"
         Background="Transparent"
         WindowStartupLocation="CenterScreen">
-    <Border CornerRadius="5" BorderBrush="{StaticResource BrushPrimaryColour2}" Background="{StaticResource BrushPrimaryColour1}" BorderThickness="2">
+    <Border BorderBrush="{StaticResource BrushPrimaryColour2}" Background="{StaticResource BrushPrimaryColour1}" BorderThickness="2">
         <Grid Margin="30" VerticalAlignment="Center">
             <StackPanel>
                 <DockPanel>

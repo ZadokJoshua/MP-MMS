@@ -26,6 +26,11 @@ namespace MP_MMS.WPF.Views.Windows
         {
             InitializeComponent();
             BindComboBox();
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

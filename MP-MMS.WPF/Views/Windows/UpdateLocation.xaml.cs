@@ -16,6 +16,10 @@ namespace MP_MMS.WPF.Views.Windows
             this.location = location;
             txtName.Text = location.Name;
             txtAddress.Text = location.Address;
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void UpdateLocation_Click(object sender, RoutedEventArgs e)

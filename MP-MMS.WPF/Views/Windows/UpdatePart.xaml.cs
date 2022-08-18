@@ -45,6 +45,10 @@ namespace MP_MMS.WPF.Views.Windows
             txtCostPerUnit.Value = (long?)part.UnitCost;
             txtQuantity.Value = (long?)part.Quantity;
             txtDateAdded.Value = part.DateAdded;
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void UpdatePart_Click(object sender, RoutedEventArgs e)

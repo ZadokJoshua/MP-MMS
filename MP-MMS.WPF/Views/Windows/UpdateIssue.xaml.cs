@@ -33,6 +33,10 @@ namespace MP_MMS.WPF.Views.Windows
             cBoxPriority.SelectedItem = issue.Priority;
             txtDueDate.Value = issue.DueDate;
             checkBoxCompleted.IsChecked = issue.IsCompleted;
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void UpdateIssue_Click(object sender, RoutedEventArgs e)

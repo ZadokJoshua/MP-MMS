@@ -13,6 +13,10 @@ namespace MP_MMS.WPF.Views.Windows
         public AddLocation()
         {
             InitializeComponent();
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void AddLocation_Click(object sender, RoutedEventArgs e)

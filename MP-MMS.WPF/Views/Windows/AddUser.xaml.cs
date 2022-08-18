@@ -13,6 +13,10 @@ namespace MP_MMS.WPF.Views.Windows
         public AddUser()
         {
             InitializeComponent();
+
+            // Startup location
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
