@@ -6,12 +6,10 @@
     <RootNamespace>MP_MMS.WPF</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>MPMMS.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-    <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
-    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
     <Compile Remove="Controls\**" />
     <EmbeddedResource Remove="Controls\**" />
@@ -40,7 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="2.88.0" />
+    <Content Include="MPMMS.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="syncfusion.ui.wpf.net" Version="20.2.0.40" />
   </ItemGroup>
 

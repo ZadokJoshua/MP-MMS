@@ -83,7 +83,7 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
-                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="300"/>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="600"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

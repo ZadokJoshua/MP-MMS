@@ -6,10 +6,11 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Class="MP_MMS.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="MP-MMS" 
         Height="700" Width="1000"
         Background="{StaticResource BrushPrimaryColour3}"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

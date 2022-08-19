@@ -36,7 +36,7 @@
                                           x:Name="txtAddress"/>
 
                 <Syncfusion:ButtonAdv Margin="5 10"
-                                  Label="Add Part"
+                                  Label="Add Location"
                                   Foreground="White"
                                   Background="#3D8421"
                                   SmallIcon="/Images/pagesicons/add.png"

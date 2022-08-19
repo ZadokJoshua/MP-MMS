@@ -35,7 +35,7 @@
                                       HorizontalAlignment="Right"
                                       Margin="5 0" Click="CloseAppBtn_Click"/>
                 </DockPanel>
-                <Label Content="" FontSize="12" x:Name="ErrorText" FontStyle="Italic" Foreground="#F44336" HorizontalAlignment="Center"/>
+                <Label Content="" FontSize="12" x:Name="ErrorText" FontStyle="Italic" Foreground="Red" HorizontalAlignment="Center"/>
                 <Label Content="User Name"
                    Foreground="White" 
                            Grid.Row="0" 

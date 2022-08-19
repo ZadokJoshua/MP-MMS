@@ -20,8 +20,8 @@ namespace MP_MMS.WPF.ChartResources
             GetWO();
             Data = new List<IssuesHelper>()
             {
-                new IssuesHelper{ Name="Completed WO", Count= arrOfWorkOrders[0]},
-                new IssuesHelper{ Name="Incomplete WO", Count= arrOfWorkOrders[1]}
+                new IssuesHelper{ Name="Completed", Count= arrOfWorkOrders[0]},
+                new IssuesHelper{ Name="Incomplete", Count= arrOfWorkOrders[1]}
             };
         }
 

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows" xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF" xmlns:Syncfusion1="clr-namespace:Syncfusion.Windows.Controls.Input;assembly=Syncfusion.SfInput.Wpf" xmlns:Syncfusion2="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="Update Location" Height="220" Width="500"
         ResizeMode="NoResize">
@@ -35,17 +35,19 @@
                                      Margin="5 0"
                                           x:Name="txtAddress"/>
 
-                <Syncfusion:ButtonAdv Margin="5 10"
+                <Syncfusion2:ButtonAdv Margin="5 10"
                                   Label="Update Location"
                                   Foreground="White"
                                   Background="#4A88DA"
-                                  SmallIcon="/Images/pagesicons/edit.png"/>
+                                  SmallIcon="/Images/pagesicons/edit.png"
+                                       Click="UpdateLocation_Click"/>
 
                 <Syncfusion:ButtonAdv Margin="5 0"
                                   Label="Delete Location"
                                   Foreground="White"
                                   Background="#F44336"
-                                  SmallIcon="/Images/pagesicons/delete.png"/>
+                                  SmallIcon="/Images/pagesicons/delete.png"
+                                      Click="DeleteLocation_Click"/>
 
             </StackPanel>
         </Grid>

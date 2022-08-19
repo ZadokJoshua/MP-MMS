@@ -9,33 +9,33 @@
       Title="HomeDashboard">
 
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
         <!--Upper Controls Section-->
 
-        <Grid Grid.Row="0">
+        <!--<Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="400"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
 
             <!--Chart-->
-            <Border CornerRadius="10" Background="White">
-                <chart:SfChart x:Name="PieChartDisplay" Margin="10">
+        <Border CornerRadius="10" Background="White" Grid.Row="0" Margin="30 0" BorderBrush="{StaticResource BrushPrimaryColour2}" BorderThickness="2">
+                <chart:SfChart x:Name="PieChartDisplay" Margin="10" >
                 </chart:SfChart>
             </Border>
 
-            <!--Events Region-->
+            <!--Events Region--><!--
             <StackPanel Grid.Column="1" Margin="30">
                 <TextBlock Text="Events" Foreground="{StaticResource BrushPrimaryColour2}" FontWeight="Bold" FontSize="15"/>
             </StackPanel>
 
-        </Grid>
+        </Grid>-->
 
-        <!--Lower Controls Section-->
+        <!--Lower Controls Section--><!--
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -59,7 +59,8 @@
             </Button>
             <Button Grid.Column="1"
                     Background="{StaticResource BrushPrimaryColour1}"
-                    Margin="30">
+                    Margin="30"
+                    x:Name="openIssues">
                 <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                     <TextBlock Text="0"
@@ -86,6 +87,6 @@
                            HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Page>

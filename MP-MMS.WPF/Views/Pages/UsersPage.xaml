@@ -82,10 +82,10 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="200"/>
+                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="100"/>
                         <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="200"/>
-                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="300"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="400"/>
                         <GridViewColumn Header="Actions" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

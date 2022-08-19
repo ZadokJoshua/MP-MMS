@@ -85,9 +85,9 @@
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                         <GridViewColumn Header="Part" DisplayMemberBinding="{Binding Part}" Width="150"/>
                         <GridViewColumn Header="Assigned To" DisplayMemberBinding="{Binding Employee}" Width="150"/>
-                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Priority}" Width="150"/>
+                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Priority}" Width="100"/>
                         <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate, StringFormat='{}{0:dd/MM/yyyy}'}" Width="150"/>
-                        <GridViewColumn Header="Completed" Width="150">
+                        <GridViewColumn Header="Completed" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <CheckBox IsChecked="{Binding IsCompleted}" IsHitTestVisible="False"/>
