@@ -12,7 +12,6 @@ namespace MP_MMS.WPF.Views.Windows
     /// </summary>
     public partial class AddPart : Window
     {
-        Part part = new();
         IEnumerable<Location> locations;
         private readonly IList<String> categories = new List<string>()
         {
@@ -44,6 +43,7 @@ namespace MP_MMS.WPF.Views.Windows
 
         private void AddPart_Click(object sender, RoutedEventArgs e)
         {
+            Part part = new();
             part.Name = txtName.Text;
             part.Manufacturer = txtManufacturer.Text;
             part.SerialNumber = txtSerialNumber.Text;

@@ -9,7 +9,6 @@ namespace MP_MMS.WPF.Views.Windows
     /// </summary>
     public partial class AddUser : Window
     {
-        Employee employee = new Employee();
         public AddUser()
         {
             InitializeComponent();
@@ -21,6 +20,7 @@ namespace MP_MMS.WPF.Views.Windows
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
+            Employee employee = new Employee();
             employee.FirstName = txtFirstName.Text;
             employee.LastName = txtLastName.Text;
             employee.Role = txtRole.Text;

@@ -17,8 +17,8 @@ namespace MP_MMS.WPF
         public MainWindow()
         {
             InitializeComponent();
-            homeButton.Background = new SolidColorBrush(Color.FromRgb(82, 88, 92));
             ContentFrame.Content = new HomeDashboard();
+            homeButton.Background = new SolidColorBrush(Color.FromRgb(82, 88, 92));
             PartPage = new PartsPage();
             IssuePage = new IssuesPage();
             LocationPage = new LocationsPage();

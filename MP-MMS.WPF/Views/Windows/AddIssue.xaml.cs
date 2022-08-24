@@ -12,7 +12,6 @@ namespace MP_MMS.WPF.Views.Windows
     /// </summary>
     public partial class AddIssue : Window
     {
-        Issue issue = new();
         private List<Part> parts;
         private List<Employee> employees;
         private readonly IList<string> priority = new List<string>()
@@ -35,24 +34,16 @@ namespace MP_MMS.WPF.Views.Windows
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            issue.Name = txtName.Text;
-            issue.Description = txtDescription.Text;
-            issue.PartId = ((Part)cBoxParts.SelectedItem).Id;
-            //issue.EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id;
-
-            if (cBoxEmployees.SelectedItem == null)
+            Issue issue = new()
             {
-                MessageBox.Show("You didn't assign the issue to anyone", "Error", MessageBoxButton.YesNo, MessageBoxImage.Error);
-            }
-            else
-            {
-                issue.EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id;
-            }
-            
-            issue.Priority = cBoxPriority.Text;
-            issue.DueDate = Convert.ToDateTime(txtDueDate.Value);
-
-            issue.IsCompleted = checkBoxCompleted.IsChecked is true ? true : false;
+                Name = txtName.Text,
+                Description = txtDescription.Text,
+                PartId = ((Part)cBoxParts.SelectedItem).Id,
+                EmployeeId = ((Employee)cBoxEmployees.SelectedItem).Id,
+                Priority = cBoxPriority.Text,
+                DueDate = Convert.ToDateTime(txtDueDate.Value),
+                IsCompleted = checkBoxCompleted.IsChecked is true ? true : false
+            };
 
             using (MPMMSDbContext context = new())
             {
