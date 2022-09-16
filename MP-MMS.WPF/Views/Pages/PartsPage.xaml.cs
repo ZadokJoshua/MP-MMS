@@ -21,6 +21,7 @@ namespace MP_MMS.WPF.Views.Pages
         {
             InitializeComponent();
             LoadListView();
+            
         }
 
         private void LoadListView()

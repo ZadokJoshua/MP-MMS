@@ -10,15 +10,14 @@ namespace MP_MMS.Data
 {
     public class MPMMSDbContext : DbContext
     {
+        public MPMMSDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Issue> Issues { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Part> Parts { get; set; }
         public DbSet<User> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Initial Catalog=MP_MMS_DB; Timeout=40000");
-        }
     }
 }
