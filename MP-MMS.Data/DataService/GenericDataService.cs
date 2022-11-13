@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using MP_MMS.Domain.Model;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +10,14 @@ using System.Threading.Tasks;
 
 namespace MP_MMS.Data.DataService
 {
-    public class GenericDataService<T> where T : class
+    public class GenericDataService<T> : IDataService<T> where T : BaseModel
     {
-        public async Task<T> Create(T entity)
+        public async Task Create(T entity)
         {
             using (MPMMSDbContext context = new())
             {
                 var createdEntity = await context.Set<T>().AddAsync(entity);
                 await context.SaveChangesAsync();
-
-                return createdEntity.Entity;
             }
         }
 
@@ -45,22 +45,18 @@ namespace MP_MMS.Data.DataService
         {
             using (MPMMSDbContext context = new())
             {
-                T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+                T entity = await context.Set<T>().Where(e => e.Id == id).FirstOrDefaultAsync();
                 return entity;
             }
         }
 
-        public async Task<T> Update(int id, T entity)
+        public async Task Update(T entity)
         {
             using (MPMMSDbContext context = new())
             {
-                entity.Id = id;
                 context.Set<T>().Update(entity);
                 await context.SaveChangesAsync();
-
-                return entity;
             }
         }
     }
-}
 }

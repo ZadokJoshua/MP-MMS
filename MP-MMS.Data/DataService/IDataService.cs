@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace MP_MMS.Data.DataService
 {
-    internal class IDataService
+    public interface IDataService<T>
     {
+        Task<IEnumerable<T>> GetAll();
+
+        Task<T> GetById(int id);
+
+        Task Create(T entity);
+
+        Task Update(T entity);
+
+        Task<bool> Delete(int id);  
     }
 }
