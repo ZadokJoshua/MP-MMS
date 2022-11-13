@@ -15,19 +15,19 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class IssuesPage : Page
     {
-        public AddIssue AddIssueWindow { get; set; }
-        public IList<Issue> Issues { get; private set; }
-        public IList<Part> Parts { get; private set; }
-        public IList<Employee> Employees { get; private set; }
+        public AddIssue AddIssueWindow { get; set; } = new();
+        public IList<Issue?> Issues { get; private set; }
+
+        public IList<Part?> Parts { get; private set; }
+        public IList<Employee?> Employees { get; private set; }
 
         public IssuesPage()
         {
             InitializeComponent();
             LoadListView();
-            
         }
 
-        private async void LoadListView()
+        private async Task LoadListView()
         {
             using (MPMMSDbContext context = new())
             {
@@ -42,14 +42,14 @@ namespace MP_MMS.WPF.Views.Pages
             }
         }
 
-        private void AddIssue_Click(object sender, RoutedEventArgs e)
+        private async void AddIssue_Click(object sender, RoutedEventArgs e)
         {
             AddIssueWindow = new();
             AddIssueWindow.ShowDialog();
-            LoadListView();
+            await LoadListView();
         }
 
-        private void UpdateIssue_Click(object sender, RoutedEventArgs e)
+        private async void UpdateIssue_Click(object sender, RoutedEventArgs e)
         {
             Issue selectedIssue = (Issue)issuesListView.SelectedItem;
             if (selectedIssue != null)
@@ -57,10 +57,10 @@ namespace MP_MMS.WPF.Views.Pages
                 var updateIssueWindow = new UpdateIssue(selectedIssue);
                 updateIssueWindow.ShowDialog();
             }
-            LoadListView();
+            await LoadListView();
         }
 
-        private void DeleteIssue_Click(object sender, RoutedEventArgs e)
+        private async void DeleteIssue_Click(object sender, RoutedEventArgs e)
         {
             Issue selectedIssue = (Issue)issuesListView.SelectedItem;
             if (selectedIssue != null)
@@ -79,12 +79,12 @@ namespace MP_MMS.WPF.Views.Pages
                 }
             }
 
-            LoadListView();
+            await LoadListView();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = Issues.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Issues.Where(e => e.Name!.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             issuesListView.ItemsSource = filteredList;
         }
     }

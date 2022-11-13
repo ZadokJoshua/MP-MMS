@@ -2,11 +2,14 @@
 
 namespace MP_MMS.Domain.Model
 {
-    public class User
+    public class User : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
+        [Required]
+        [MaxLength(10)]
         public string? UserName { get; set; }
+
+        [Required]
+        [MaxLength(15)]
         public string? Password { get; set; }
     }
 }
