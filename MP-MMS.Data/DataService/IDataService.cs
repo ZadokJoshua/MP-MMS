@@ -16,6 +16,6 @@ namespace MP_MMS.Data.DataService
 
         Task Update(T entity);
 
-        Task<bool> Delete(int id);  
+        Task<bool> Delete(T entity);  
     }
 }

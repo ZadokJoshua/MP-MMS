@@ -1,4 +1,5 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using System.Windows;
 
@@ -24,23 +25,26 @@ namespace MP_MMS.WPF.Views.Windows
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
-        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        private async void UpdateUser_Click(object sender, RoutedEventArgs e)
         {
             employee.FirstName = txtFirstName.Text;
             employee.LastName = txtLastName.Text;
             employee.Role = txtRole.Text;
             employee.Email = txtEmail.Text;
 
-            using (var context = new MPMMSDbContext())
-            {
-                context.Employees.Update(employee);
-                context.SaveChanges();
-            }
+            //using (var context = new MPMMSDbContext())
+            //{
+            //    context.Employees.Update(employee);
+            //    context.SaveChanges();
+            //}
+
+            var dataAccess = new GenericDataService<Employee>();
+            await dataAccess.Update(employee);
 
             Close();
         }
 
-        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        private async void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
             string message = $"Do you want to delete {employee.FirstName}'s data?";
             string title = "Delete User";
@@ -48,11 +52,14 @@ namespace MP_MMS.WPF.Views.Windows
             var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
             if (result is MessageBoxResult.Yes)
             {
-                using (var context = new MPMMSDbContext())
-                {
-                    context.Employees.Remove(employee);
-                    context.SaveChanges();
-                }
+                //using (var context = new MPMMSDbContext())
+                //{
+                //    context.Employees.Remove(employee);
+                //    context.SaveChanges();
+                //}
+
+                var dataAccess = new GenericDataService<Employee>();
+                await dataAccess.Delete(employee);
             }
 
             Close();

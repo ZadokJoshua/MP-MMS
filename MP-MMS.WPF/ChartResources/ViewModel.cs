@@ -40,7 +40,7 @@ namespace MP_MMS.WPF.ChartResources
                 {
                     completeWO++;
                 }
-                else
+                else 
                 {
                     incompleteWO++;
                 }

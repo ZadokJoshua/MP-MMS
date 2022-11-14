@@ -44,6 +44,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Syncfusion:SfTextBoxExt Watermark="Search" 
                                      Height="30"
@@ -51,15 +52,13 @@
                                      FontSize="16"
                                      VerticalAlignment="Center"
                                      x:Name="txtSearch"
+                                     Margin="0 0 5 0"
                                      TextChanged="SearchBox_TextChanged"/>
-
-
-
-            <Button Grid.Column="2"
+            <Button Grid.Column="1"
                     Background="#3D8421"
                     Width="205"
                     BorderThickness="0"
-                    Margin="10 0 0 0"
+                    Margin="5 0"
                     Click="AddUser_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -76,42 +75,38 @@
                                Foreground="White"/>
                 </Grid>
             </Button>
+            
+            <!--Update and Delete Btn-->
+            <Button Grid.Column="2"
+                    Width="30"
+                    Margin="5 0"
+                    BorderThickness="0"
+                    Background="#568CD9"
+                    Click="UpdateUser_Click">
+                <Image  Source="/Images/pagesicons/edit.png" 
+                        Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
+            <Button Grid.Column="3"
+                    Width="30"
+                    Margin="5 0 0 0"
+                    BorderThickness="0"
+                    Background="#F44336"
+                    Click="DeleteUser_Click"
+                    >
+                <Image  Source="/Images/pagesicons/delete.png"
+                        Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
         </Grid>
 
+        <!--Data View-->
         <ListView x:Name="partsListView" Grid.Row="2">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="200"/>
                         <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="200"/>
-                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="400"/>
-                        <GridViewColumn Header="Actions" Width="Auto">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#568CD9"
-                                                Click="UpdateUser_Click">
-                                            <Image  Source="/Images/pagesicons/edit.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#F44336"
-                                                Click="DeleteUser_Click">
-                                            <Image  Source="/Images/pagesicons/delete.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="200"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
