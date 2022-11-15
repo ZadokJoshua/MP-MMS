@@ -1,4 +1,5 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using System.Windows;
 
@@ -12,13 +13,12 @@ namespace MP_MMS.WPF.Views.Windows
         public AddUser()
         {
             InitializeComponent();
-
             // Startup location
             Owner = Application.Current.MainWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
-        private void AddUser_Click(object sender, RoutedEventArgs e)
+        private async void AddUser_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = new Employee();
             employee.FirstName = txtFirstName.Text;
@@ -26,11 +26,8 @@ namespace MP_MMS.WPF.Views.Windows
             employee.Role = txtRole.Text;
             employee.Email = txtEmail.Text;
 
-            using (var context = new MPMMSDbContext())
-            {
-                context.Employees.Add(employee);
-                context.SaveChanges();
-            }
+            var dbAccess = new GenericDataService<Employee>();
+            await dbAccess.Create(employee);
 
             Close();
         }

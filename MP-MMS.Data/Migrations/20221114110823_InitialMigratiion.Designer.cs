@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MP_MMS.Data.Migrations
 {
     [DbContext(typeof(MPMMSDbContext))]
-    [Migration("20220804151042_initialMigration")]
-    partial class initialMigration
+    [Migration("20221114110823_InitialMigratiion")]
+    partial class InitialMigratiion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,10 +66,6 @@ namespace MP_MMS.Data.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
@@ -78,10 +74,6 @@ namespace MP_MMS.Data.Migrations
 
                     b.Property<int>("PartId")
                         .HasColumnType("int");
-
-                    b.Property<string>("PartName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Priority")
                         .HasColumnType("nvarchar(max)");
@@ -131,15 +123,11 @@ namespace MP_MMS.Data.Migrations
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("LocationName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Manufacturer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ModelNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("ModelNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -147,8 +135,8 @@ namespace MP_MMS.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SerialNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("SerialNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("UnitCost")
                         .HasColumnType("float");
@@ -158,6 +146,37 @@ namespace MP_MMS.Data.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("Parts");
+                });
+
+            modelBuilder.Entity("MP_MMS.Domain.Model.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Password = "Admin",
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("MP_MMS.Domain.Model.Issue", b =>

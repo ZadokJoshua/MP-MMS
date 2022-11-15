@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MP_MMS.Data.Services
+namespace MP_MMS.Data.DataService
 {
     public interface IDataService<T>
     {
@@ -12,10 +12,10 @@ namespace MP_MMS.Data.Services
 
         Task<T> GetById(int id);
 
-        void Create(T entity);
+        Task Create(T entity);
 
-        void Update(int id, T entity);
+        Task Update(T entity);
 
-        Task<bool> Delete(int id);
+        Task<bool> Delete(T entity);  
     }
 }

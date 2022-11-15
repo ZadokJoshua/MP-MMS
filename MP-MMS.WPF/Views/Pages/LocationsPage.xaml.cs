@@ -1,8 +1,10 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,29 +15,31 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class LocationsPage : Page
     {
-        public IList<Location> Locations { get; private set; }
+        public IEnumerable<Location> Locations { get; private set; }
         public LocationsPage()
         {
             InitializeComponent();
 
             Locations = new List<Location>();
 
-            LoadListView();
+            LoadListViewAsync();
         }
 
         private void AddLocation_Click(object sender, RoutedEventArgs e)
         {
             var addLocationWindow = new AddLocation();
             addLocationWindow.ShowDialog();
-            LoadListView();
+            LoadListViewAsync();
         }
 
-        void LoadListView()
+        async Task LoadListViewAsync()
         {
-            using (var context = new MPMMSDbContext())
-            {
-                Locations = context.Locations.ToList<Location>();
-            }
+            //using (var context = new MPMMSDbContext())
+            //{
+            //    Locations = context.Locations.ToList<Location>();
+            //}
+            var dataAccess = new GenericDataService<Location>();
+            await dataAccess.GetAll();
 
             if (Locations != null)
             {
@@ -51,10 +55,10 @@ namespace MP_MMS.WPF.Views.Pages
                 var updateLocationWindow = new UpdateLocation(selectedLocation);
                 updateLocationWindow.ShowDialog();
             }
-            LoadListView();
+            LoadListViewAsync();
         }
 
-        private void DeleteLocation_Click(object sender, RoutedEventArgs e)
+        private async void DeleteLocation_Click(object sender, RoutedEventArgs e)
         {
             Location selectedLocation = (Location)locationsListView.SelectedItem;
             if (selectedLocation != null)
@@ -65,15 +69,18 @@ namespace MP_MMS.WPF.Views.Pages
                 var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
                 if (result is MessageBoxResult.Yes)
                 {
-                    using (var context = new MPMMSDbContext())
-                    {
-                        context.Locations.Remove(selectedLocation);
-                        context.SaveChanges();
-                    }
+                    //using (var context = new MPMMSDbContext())
+                    //{
+                    //    context.Locations.Remove(selectedLocation);
+                    //    context.SaveChanges();
+                    //}
+
+                    var dataAccess = new GenericDataService<Location>();
+                    await dataAccess.Delete(selectedLocation);
                 }
             }
 
-            LoadListView();
+            LoadListViewAsync();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)

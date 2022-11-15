@@ -8,9 +8,7 @@
     <SolidColorBrush x:Key="BrushPrimaryColour1"  Color="{StaticResource PrimaryColour1}"/>
     <SolidColorBrush x:Key="BrushPrimaryColour2"  Color="{StaticResource PrimaryColour2}"/>
     <SolidColorBrush x:Key="BrushPrimaryColour3"  Color="{StaticResource PrimaryColour3}"/>
-
     <FontFamily x:Key="DefaultFont">Arial</FontFamily>
-
     <!--Navigation Bar Button Styles-->
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="BorderThickness" Value="0"/>

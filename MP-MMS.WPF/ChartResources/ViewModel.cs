@@ -11,7 +11,7 @@ namespace MP_MMS.WPF.ChartResources
 {
     public class ViewModel
     {
-        public List<Issue> Issues { get; set; }
+        public List<Issue> Issues { get; set; } = new List<Issue>();
         public List<IssuesHelper> Data { get; set; }
         int[] arrOfWorkOrders = new int[2];
 
@@ -25,7 +25,7 @@ namespace MP_MMS.WPF.ChartResources
             };
         }
 
-        private int[] GetWO()
+        private void GetWO()
         {
             int completeWO = 0;
             int incompleteWO = 0;
@@ -40,7 +40,7 @@ namespace MP_MMS.WPF.ChartResources
                 {
                     completeWO++;
                 }
-                else
+                else 
                 {
                     incompleteWO++;
                 }
@@ -48,7 +48,6 @@ namespace MP_MMS.WPF.ChartResources
 
             arrOfWorkOrders[0] = completeWO;
             arrOfWorkOrders[1] = incompleteWO;
-            return arrOfWorkOrders;
         }
     }
 

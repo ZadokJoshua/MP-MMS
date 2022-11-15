@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MP_MMS.Data.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class InitialMigratiion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,6 +40,20 @@ namespace MP_MMS.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Parts",
                 columns: table => new
                 {
@@ -47,10 +61,9 @@ namespace MP_MMS.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SerialNumber = table.Column<int>(type: "int", nullable: true),
-                    ModelNumber = table.Column<int>(type: "int", nullable: true),
+                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModelNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LocationName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LocationId = table.Column<int>(type: "int", nullable: false),
                     UnitCost = table.Column<double>(type: "float", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
@@ -75,9 +88,7 @@ namespace MP_MMS.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PartName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PartId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -100,6 +111,11 @@ namespace MP_MMS.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Password", "UserName" },
+                values: new object[] { 1, "Admin", "Admin" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Issues_EmployeeId",
                 table: "Issues",
@@ -120,6 +136,9 @@ namespace MP_MMS.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Issues");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Employees");

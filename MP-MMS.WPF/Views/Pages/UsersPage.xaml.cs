@@ -1,8 +1,10 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,7 +15,7 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class UsersPage : Page
     {
-        public IList<Employee> Employees { get; private set; }
+        public IEnumerable<Employee> Employees { get; private set; }
 
         public UsersPage()
         {
@@ -22,19 +24,21 @@ namespace MP_MMS.WPF.Views.Pages
             LoadListView();
         }
 
-        private void AddUser_Click(object sender, RoutedEventArgs e)
+        private async void AddUser_Click(object sender, RoutedEventArgs e)
         {
             var addUserWindow = new AddUser();
             addUserWindow.ShowDialog();
-            LoadListView();
+            await LoadListView();
         }
 
-        void LoadListView()
+        async Task LoadListView()
         {
-            using (var context = new MPMMSDbContext())
-            {
-                Employees = context.Employees.ToList<Employee>();
-            }
+            //using (var context = new MPMMSDbContext())
+            //{
+            //    Employees = context.Employees.ToList<Employee>();
+            //}
+            var dataAccess = new GenericDataService<Employee>();
+            Employees = await dataAccess.GetAll();
 
             if (Employees != null)
             {
@@ -42,7 +46,7 @@ namespace MP_MMS.WPF.Views.Pages
             }
         }
 
-        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        private async void UpdateUser_Click(object sender, RoutedEventArgs e)
         {
             Employee selectedEmployee = (Employee)partsListView.SelectedItem;
             if (selectedEmployee != null)
@@ -50,10 +54,14 @@ namespace MP_MMS.WPF.Views.Pages
                 var updateUserWindow = new UpdateUser(selectedEmployee);
                 updateUserWindow.ShowDialog();
             }
-            LoadListView();
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            await LoadListView();
         }
 
-        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        private async void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
             Employee selectedEmployee = (Employee)partsListView.SelectedItem;
             if (selectedEmployee != null)
@@ -64,21 +72,22 @@ namespace MP_MMS.WPF.Views.Pages
                 var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
                 if (result is MessageBoxResult.Yes)
                 {
-                    using (var context = new MPMMSDbContext())
-                    {
-                        context.Employees.Remove(selectedEmployee);
-                        context.SaveChanges();
-                    }
+                    var dataAccess = new GenericDataService<Employee>();
+                    await dataAccess.Delete(selectedEmployee);
                 }
             }
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
-            LoadListView();
+            await LoadListView();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var filteredList = Employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
-            partsListView.ItemsSource = filteredList;
+            partsListView.ItemsSource = filteredList;   
         }
     }
 }
