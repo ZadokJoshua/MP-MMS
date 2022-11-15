@@ -10,7 +10,6 @@ namespace MP_MMS.Domain.Model
         public string? Name { get; set; }
         [Required]
         [MaxLength(200)]
-        [Optional]
         public string? Address { get; set; }
 
         public ICollection<Part> Parts { get; set; } = new List<Part>();
