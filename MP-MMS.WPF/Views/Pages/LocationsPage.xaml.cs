@@ -8,85 +8,82 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MP_MMS.WPF.Views.Pages
+namespace MP_MMS.WPF.Views.Pages;
+
+/// <summary>
+/// Interaction logic for LocationsPage.xaml
+/// </summary>
+public partial class LocationsPage : Page
 {
-    /// <summary>
-    /// Interaction logic for LocationsPage.xaml
-    /// </summary>
-    public partial class LocationsPage : Page
+    public IEnumerable<Location> Locations { get; private set; }
+    public LocationsPage()
     {
-        public IEnumerable<Location> Locations { get; private set; }
-        public LocationsPage()
+        InitializeComponent();
+
+        Locations = new List<Location>();
+
+        LoadListViewAsync();
+    }
+
+    private async void AddLocation_Click(object sender, RoutedEventArgs e)
+    {
+        var addLocationWindow = new AddLocation();
+        addLocationWindow.ShowDialog();
+        await LoadListViewAsync();
+    }
+
+    async Task LoadListViewAsync()
+    {
+        var dataAccess = new GenericDataService<Location>();
+        Locations = await dataAccess.GetAll();
+
+        if (Locations != null)
         {
-            InitializeComponent();
-
-            Locations = new List<Location>();
-
-            LoadListViewAsync();
+            locationsListView.ItemsSource = Locations;
         }
+    }
 
-        private void AddLocation_Click(object sender, RoutedEventArgs e)
+    private async void UpdateLocation_Click(object sender, RoutedEventArgs e)
+    {
+        Location selectedLocation = (Location)locationsListView.SelectedItem;
+        if (selectedLocation != null)
         {
-            var addLocationWindow = new AddLocation();
-            addLocationWindow.ShowDialog();
-            LoadListViewAsync();
+            var updateLocationWindow = new UpdateLocation(selectedLocation);
+            updateLocationWindow.ShowDialog();
         }
-
-        async Task LoadListViewAsync()
+        else
         {
-            //using (var context = new MPMMSDbContext())
-            //{
-            //    Locations = context.Locations.ToList<Location>();
-            //}
-            var dataAccess = new GenericDataService<Location>();
-            await dataAccess.GetAll();
+            MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        await LoadListViewAsync();
+    }
 
-            if (Locations != null)
+    private async void DeleteLocation_Click(object sender, RoutedEventArgs e)
+    {
+        Location selectedLocation = (Location)locationsListView.SelectedItem;
+        if (selectedLocation != null)
+        {
+            string message = $"Do you want to delete {selectedLocation.Name}'s data?";
+            string title = "Delete Location";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+            if (result is MessageBoxResult.Yes)
             {
-                locationsListView.ItemsSource = Locations;
+                var dataAccess = new GenericDataService<Location>();
+                await dataAccess.Delete(selectedLocation);
             }
         }
-
-        private void UpdateLocation_Click(object sender, RoutedEventArgs e)
+        else
         {
-            Location selectedLocation = (Location)locationsListView.SelectedItem;
-            if (selectedLocation != null)
-            {
-                var updateLocationWindow = new UpdateLocation(selectedLocation);
-                updateLocationWindow.ShowDialog();
-            }
-            LoadListViewAsync();
+            MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private async void DeleteLocation_Click(object sender, RoutedEventArgs e)
-        {
-            Location selectedLocation = (Location)locationsListView.SelectedItem;
-            if (selectedLocation != null)
-            {
-                string message = $"Do you want to delete {selectedLocation.Name}'s data?";
-                string title = "Delete Location";
-                MessageBoxButton buttons = MessageBoxButton.YesNo;
-                var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
-                if (result is MessageBoxResult.Yes)
-                {
-                    //using (var context = new MPMMSDbContext())
-                    //{
-                    //    context.Locations.Remove(selectedLocation);
-                    //    context.SaveChanges();
-                    //}
+        await LoadListViewAsync();
+    }
 
-                    var dataAccess = new GenericDataService<Location>();
-                    await dataAccess.Delete(selectedLocation);
-                }
-            }
-
-            LoadListViewAsync();
-        }
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var filteredList = Locations.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
-            locationsListView.ItemsSource = filteredList;
-        }
+    private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var filteredList = Locations.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+        locationsListView.ItemsSource = filteredList;
     }
 }

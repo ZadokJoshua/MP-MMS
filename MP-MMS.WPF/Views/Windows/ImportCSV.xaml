@@ -1,0 +1,23 @@
+﻿<Window xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="MP_MMS.WPF.Views.Windows.ImportCSV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MP_MMS.WPF.Views.Windows"
+        mc:Ignorable="d"
+        Title="Import CSV" Height="320" Width="320" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Import Parts" FontSize="20" FontWeight="Medium"/>
+            <Grid Margin="0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <syncfusion:SfTextBoxExt Watermark=".csv File Path" x:Name="csvFilePathTextBox" Margin="0 0 5 0"/>
+                <syncfusion:ButtonAdv Grid.Column="2" SmallIcon="{x:Null}" SizeMode="Normal" Label="Browse" x:Name="browseBtn" Click="browseBtn_Click"/>
+            </Grid>
+            <syncfusion:ButtonAdv Grid.Column="2" SmallIcon="{x:Null}" SizeMode="Normal" Label="Import" x:Name="importBtn" Click="importBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

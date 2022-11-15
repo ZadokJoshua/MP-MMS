@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
 using System.Collections.Generic;
@@ -16,10 +17,9 @@ namespace MP_MMS.WPF.Views.Pages
     public partial class IssuesPage : Page
     {
         public AddIssue AddIssueWindow { get; set; } = new();
-        public IList<Issue?> Issues { get; private set; }
-
-        public IList<Part?> Parts { get; private set; }
-        public IList<Employee?> Employees { get; private set; }
+        public IEnumerable<Issue?> Issues { get; private set; }
+        public IEnumerable<Part?> Parts { get; private set; }
+        public IEnumerable<Employee?> Employees { get; private set; }
 
         public IssuesPage()
         {
@@ -57,6 +57,10 @@ namespace MP_MMS.WPF.Views.Pages
                 var updateIssueWindow = new UpdateIssue(selectedIssue);
                 updateIssueWindow.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             await LoadListView();
         }
 
@@ -71,12 +75,13 @@ namespace MP_MMS.WPF.Views.Pages
                 var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
                 if (result is MessageBoxResult.Yes)
                 {
-                    using (var context = new MPMMSDbContext())
-                    {
-                        context.Issues.Remove(selectedIssue);
-                        context.SaveChanges();
-                    }
+                    var dataAccess = new GenericDataService<Issue>();
+                    await dataAccess.Delete(selectedIssue);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             await LoadListView();
@@ -84,7 +89,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = Issues.Where(e => e.Name!.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Issues.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             issuesListView.ItemsSource = filteredList;
         }
     }
