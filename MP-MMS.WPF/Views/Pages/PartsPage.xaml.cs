@@ -1,6 +1,8 @@
-﻿using MP_MMS.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
+using Syncfusion.ProjIO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -13,23 +15,22 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
-        public IList<Part> Parts { get; private set; }
-        public IList<Location> Locations { get; private set; }
+        public IEnumerable<Part> Parts { get; private set; }
+        public IEnumerable<Location> Locations { get; private set; }
         
 
         public PartsPage()
         {
             InitializeComponent();
             LoadListView();
-            
         }
 
-        private void LoadListView()
+        private async void LoadListView()
         {
             using (MPMMSDbContext context = new())
             {
-                Parts = context.Parts.ToList();
-                Locations = context.Locations.ToList();
+                Parts = await context.Parts.ToListAsync();
+                Locations = await context.Locations.ToListAsync();
             }
 
             if (Parts != null)
@@ -40,7 +41,10 @@ namespace MP_MMS.WPF.Views.Pages
         
         private void ImportCSV_Click(object sender, RoutedEventArgs e)
         {
-            //TODO - Import csv file functionalty
+            var importWindow = new ImportCSV();
+            importWindow.ShowDialog();
+
+            LoadListView();
         }
 
         private void AddPart_Click(object sender, RoutedEventArgs e)
@@ -58,6 +62,10 @@ namespace MP_MMS.WPF.Views.Pages
             {
                 var updatePartWindow = new UpdatePart(selectedPart);
                 updatePartWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             LoadListView();
         }
@@ -80,6 +88,10 @@ namespace MP_MMS.WPF.Views.Pages
                         context.SaveChanges();
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             LoadListView();

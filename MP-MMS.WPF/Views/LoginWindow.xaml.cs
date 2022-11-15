@@ -34,7 +34,7 @@ namespace MP_MMS.WPF.Views
         private void GrantAccess()
         {
             MainWindow.Show();
-            Close();
+            this.Close();
         }
 
         private void CloseAppBtn_Click(object sender, RoutedEventArgs e)

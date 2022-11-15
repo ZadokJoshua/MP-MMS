@@ -8,86 +8,81 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MP_MMS.WPF.Views.Pages
+namespace MP_MMS.WPF.Views.Pages;
+
+/// <summary>
+/// Interaction logic for UsersPage.xaml
+/// </summary>
+public partial class UsersPage : Page
 {
-    /// <summary>
-    /// Interaction logic for UsersPage.xaml
-    /// </summary>
-    public partial class UsersPage : Page
+    public IEnumerable<Employee> Employees { get; private set; }
+
+    public UsersPage()
     {
-        public IEnumerable<Employee> Employees { get; private set; }
+        InitializeComponent();
+        Employees = new List<Employee>();
+        LoadListView();
+    }
 
-        public UsersPage()
+    private async void AddUser_Click(object sender, RoutedEventArgs e)
+    {
+        var addUserWindow = new AddUser();
+        addUserWindow.ShowDialog();
+        await LoadListView();
+    }
+
+    async Task LoadListView()
+    {
+        var dataAccess = new GenericDataService<Employee>();
+        Employees = await dataAccess.GetAll();
+
+        if (Employees != null)
         {
-            InitializeComponent();
-            Employees = new List<Employee>();
-            LoadListView();
+            partsListView.ItemsSource = Employees;
         }
+    }
 
-        private async void AddUser_Click(object sender, RoutedEventArgs e)
+    private async void UpdateUser_Click(object sender, RoutedEventArgs e)
+    {
+        Employee selectedEmployee = (Employee)partsListView.SelectedItem;
+        if (selectedEmployee != null)
         {
-            var addUserWindow = new AddUser();
-            addUserWindow.ShowDialog();
-            await LoadListView();
+            var updateUserWindow = new UpdateUser(selectedEmployee);
+            updateUserWindow.ShowDialog();
         }
-
-        async Task LoadListView()
+        else
         {
-            //using (var context = new MPMMSDbContext())
-            //{
-            //    Employees = context.Employees.ToList<Employee>();
-            //}
-            var dataAccess = new GenericDataService<Employee>();
-            Employees = await dataAccess.GetAll();
+            MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        await LoadListView();
+    }
 
-            if (Employees != null)
+    private async void DeleteUser_Click(object sender, RoutedEventArgs e)
+    {
+        Employee selectedEmployee = (Employee)partsListView.SelectedItem;
+        if (selectedEmployee != null)
+        {
+            string message = $"Do you want to delete {selectedEmployee.FirstName}'s data?";
+            string title = "Delete User";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
+            if (result is MessageBoxResult.Yes)
             {
-                partsListView.ItemsSource = Employees;
+                var dataAccess = new GenericDataService<Employee>();
+                await dataAccess.Delete(selectedEmployee);
             }
         }
-
-        private async void UpdateUser_Click(object sender, RoutedEventArgs e)
+        else
         {
-            Employee selectedEmployee = (Employee)partsListView.SelectedItem;
-            if (selectedEmployee != null)
-            {
-                var updateUserWindow = new UpdateUser(selectedEmployee);
-                updateUserWindow.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            await LoadListView();
+            MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private async void DeleteUser_Click(object sender, RoutedEventArgs e)
-        {
-            Employee selectedEmployee = (Employee)partsListView.SelectedItem;
-            if (selectedEmployee != null)
-            {
-                string message = $"Do you want to delete {selectedEmployee.FirstName}'s data?";
-                string title = "Delete User";
-                MessageBoxButton buttons = MessageBoxButton.YesNo;
-                var result = MessageBox.Show(message, title, buttons, MessageBoxImage.Warning);
-                if (result is MessageBoxResult.Yes)
-                {
-                    var dataAccess = new GenericDataService<Employee>();
-                    await dataAccess.Delete(selectedEmployee);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select a record.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+        await LoadListView();
+    }
 
-            await LoadListView();
-        }
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var filteredList = Employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
-            partsListView.ItemsSource = filteredList;   
-        }
+    private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var filteredList = Employees.Where(e => e.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+        partsListView.ItemsSource = filteredList;   
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace MP_MMS.WPF.Views.Windows
@@ -27,7 +29,7 @@ namespace MP_MMS.WPF.Views.Windows
             BindComboBox();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Issue issue = new()
             {
@@ -40,17 +42,14 @@ namespace MP_MMS.WPF.Views.Windows
                 IsCompleted = checkBoxCompleted.IsChecked is true ? true : false
             };
 
-            using (MPMMSDbContext context = new())
-            {
-                context.Issues.Add(issue);
-                context.SaveChanges();
-            }
+            var dataAccess = new GenericDataService<Issue>();
+            await dataAccess.Create(issue);
 
             Close();
 
         }
 
-        async void BindComboBox()
+        async Task BindComboBox()
         {
             using (MPMMSDbContext context = new())
             {

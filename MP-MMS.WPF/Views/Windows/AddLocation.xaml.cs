@@ -1,4 +1,5 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using System.Windows;
 
@@ -18,7 +19,7 @@ namespace MP_MMS.WPF.Views.Windows
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
-        private void AddLocation_Click(object sender, RoutedEventArgs e)
+        private async void AddLocation_Click(object sender, RoutedEventArgs e)
         {
             Location location = new()
             {
@@ -26,11 +27,8 @@ namespace MP_MMS.WPF.Views.Windows
                 Address = txtAddress.Text
             };
 
-            using (var context = new MPMMSDbContext())
-            {
-                context.Locations.Add(location);
-                context.SaveChanges();
-            }
+            var dataAccess = new GenericDataService<Location>();
+            await dataAccess.Create(location);
 
             Close();
         }

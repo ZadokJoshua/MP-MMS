@@ -1,4 +1,5 @@
 ﻿using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using System.Windows;
 
@@ -22,21 +23,18 @@ namespace MP_MMS.WPF.Views.Windows
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
-        private void UpdateLocation_Click(object sender, RoutedEventArgs e)
+        private async void UpdateLocation_Click(object sender, RoutedEventArgs e)
         {
             location.Name = txtName.Text;
             location.Address = txtAddress.Text;
 
-            using (var context = new MPMMSDbContext())
-            {
-                context.Locations.Update(location);
-                context.SaveChanges();
-            }
+            var dataAccess = new GenericDataService<Location>();
+            await dataAccess.Update(location);
 
             Close();
         }
 
-        private void DeleteLocation_Click(object sender, RoutedEventArgs e)
+        private async void DeleteLocation_Click(object sender, RoutedEventArgs e)
         {
             string message = $"Do you want to delete {location.Name}'s data?";
             string title = "Delete Location";
@@ -46,8 +44,8 @@ namespace MP_MMS.WPF.Views.Windows
             {
                 using (var context = new MPMMSDbContext())
                 {
-                    context.Locations.Remove(location);
-                    context.SaveChanges();
+                    var dataAccess = new GenericDataService<Location>();
+                    await dataAccess.Delete(location);
                 }
             }
 

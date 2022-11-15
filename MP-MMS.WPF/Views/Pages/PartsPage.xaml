@@ -43,18 +43,21 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Syncfusion:SfTextBoxExt Watermark="Search" 
                                      Height="30"
                                      Grid.Column="0"
                                      FontSize="16"
+                                     Margin="0 0 5 0"
                                      VerticalAlignment="Center"
                                      x:Name="txtSearch"
                                      TextChanged="SearchBox_TextChanged"/>
 
             <Button Grid.Column="1"
-                    Width="120"
-                    Margin="10 0"
+                    Width="150"
+                    Margin="5 0"
                     BorderThickness="2"
                     BorderBrush="White"
                     Background="Transparent"
@@ -68,9 +71,9 @@
                     <Image  Source="/Images/pagesicons/download.png"
                                 Grid.Column="0"
                                 Style="{StaticResource ButtonIconsStyle}"/>
-                    <TextBlock Text="Import" 
-                                   Grid.Column="1" 
-                                   Style="{StaticResource ButtonTxtStyle}"
+                    <TextBlock Text=".csv"
+                               Grid.Column="1" 
+                               Style="{StaticResource ButtonTxtStyle}"
                                Foreground="White"/>
                 </Grid>
 
@@ -81,6 +84,7 @@
                     Background="#3D8421"
                     Width="150"
                     BorderThickness="0"
+                    Margin="5 0"
                     Click="AddPart_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -97,6 +101,26 @@
                                Foreground="White"/>
                 </Grid>
             </Button>
+            <Button Grid.Column="3"
+                    Width="30"
+                    Margin="5 0"
+                    BorderThickness="0"
+                    Background="#568CD9"
+                    x:Name="UpdatePart"
+                    Click="UpdatePart_Click">
+                <Image  Source="/Images/pagesicons/edit.png"
+                        Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
+            <Button Grid.Column="4"
+                    Width="30"
+                    Margin="5 0 0 0"
+                    BorderThickness="0"
+                    Background="#F44336"
+                    x:Name="DeletePart"
+                    Click="DeletePart_Click">
+                <Image  Source="/Images/pagesicons/delete.png"
+                        Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
         </Grid>
 
         <ListView x:Name="partsListView" Grid.Row="2">
@@ -112,34 +136,6 @@
                         <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding UnitCost}" Width="Auto"/>
                         <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="Auto"/>
                         <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding DateAdded, StringFormat='{}{0:dd/MM/yyyy}'}" Width="100"/>
-                        <GridViewColumn Header="Actions" Width="Auto">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#568CD9"
-                                                x:Name="UpdatePart"
-                                                Click="UpdatePart_Click">
-                                            <Image  Source="/Images/pagesicons/edit.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#F44336"
-                                                x:Name="DeletePart"
-                                                Click="DeletePart_Click">
-                                            <Image  Source="/Images/pagesicons/delete.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

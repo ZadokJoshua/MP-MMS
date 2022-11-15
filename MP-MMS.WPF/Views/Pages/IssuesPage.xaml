@@ -43,11 +43,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Syncfusion:SfTextBoxExt Watermark="Search" 
                                      Height="30"
                                      Grid.Column="0"
                                      FontSize="16"
+                                     Margin="0 0 5 0"
                                      VerticalAlignment="Center"
                                      x:Name="txtSearch"
                                      TextChanged="SearchBox_TextChanged"/>
@@ -55,11 +57,11 @@
             
 
 
-            <Button Grid.Column="2"
+            <Button Grid.Column="1"
                     Background="#3D8421"
                     Width="205"
                     BorderThickness="0"
-                    Margin="10 0 0 0"
+                    Margin="5 0"
                     Click="AddIssue_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -76,6 +78,24 @@
                                Foreground="White"/>
                 </Grid>
             </Button>
+            <Button Grid.Column="2"
+                                                Width="30"
+                                                Margin="5 0"
+                                                BorderThickness="0"
+                                                Background="#568CD9"
+                                                Click="UpdateIssue_Click">
+                <Image  Source="/Images/pagesicons/edit.png"
+                                                    Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
+            <Button Grid.Column="3"
+                                                Width="30"
+                                                Margin="5 0 0 0"
+                                                BorderThickness="0"
+                                                Background="#F44336"
+                                                Click="DeleteIssue_Click">
+                <Image  Source="/Images/pagesicons/delete.png"
+                                                    Style="{StaticResource ButtonIconsStyle}"/>
+            </Button>
         </Grid>
 
         <ListView x:Name="issuesListView" Grid.Row="2">
@@ -91,32 +111,6 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <CheckBox IsChecked="{Binding IsCompleted}" IsHitTestVisible="False"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Actions" Width="Auto">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#568CD9"
-                                                Click="UpdateIssue_Click">
-                                            <Image  Source="/Images/pagesicons/edit.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                        <Button Grid.Column="1"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#F44336"
-                                                Click="DeleteIssue_Click">
-                                            <Image  Source="/Images/pagesicons/delete.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
-                                        </Button>
-                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

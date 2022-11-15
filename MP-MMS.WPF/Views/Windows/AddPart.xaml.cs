@@ -53,7 +53,7 @@ namespace MP_MMS.WPF.Views.Windows
             if (cBoxLocation.SelectedItem != null) { part.LocationId = ((Location)cBoxLocation.SelectedItem).Id; }
 
 
-            part.UnitCost = (double)txtCostPerUnit.Value;
+            part.UnitCost = (decimal)txtCostPerUnit.Value;
             part.Quantity = (int)txtQuantity.Value;
             part.DateAdded = Convert.ToDateTime(txtDateAdded.Value);
 
