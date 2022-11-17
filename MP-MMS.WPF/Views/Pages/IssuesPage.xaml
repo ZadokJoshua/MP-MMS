@@ -79,22 +79,22 @@
                 </Grid>
             </Button>
             <Button Grid.Column="2"
-                                                Width="30"
-                                                Margin="5 0"
-                                                BorderThickness="0"
-                                                Background="#568CD9"
-                                                Click="UpdateIssue_Click">
+                    Width="30"
+                    Margin="5 0"
+                    BorderThickness="0"
+                    Background="#568CD9"
+                    Click="UpdateIssue_Click">
                 <Image  Source="/Images/pagesicons/edit.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
+                        Style="{StaticResource ButtonIconsStyle}"/>
             </Button>
             <Button Grid.Column="3"
-                                                Width="30"
-                                                Margin="5 0 0 0"
-                                                BorderThickness="0"
-                                                Background="#F44336"
-                                                Click="DeleteIssue_Click">
+                    Width="30"
+                    Margin="5 0 0 0"
+                    BorderThickness="0"
+                    Background="#F44336"
+                    Click="DeleteIssue_Click">
                 <Image  Source="/Images/pagesicons/delete.png"
-                                                    Style="{StaticResource ButtonIconsStyle}"/>
+                        Style="{StaticResource ButtonIconsStyle}"/>
             </Button>
         </Grid>
 
@@ -105,7 +105,7 @@
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                         <GridViewColumn Header="Part" DisplayMemberBinding="{Binding Part}" Width="150"/>
                         <GridViewColumn Header="Assigned To" DisplayMemberBinding="{Binding Employee}" Width="150"/>
-                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Priority}" Width="100"/>
+                        <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Priority}" Width="150"/>
                         <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate, StringFormat='{}{0:dd/MM/yyyy}'}" Width="150"/>
                         <GridViewColumn Header="Status" Width="Auto">
                             <GridViewColumn.CellTemplate>

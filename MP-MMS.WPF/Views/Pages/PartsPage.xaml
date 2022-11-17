@@ -61,7 +61,7 @@
                     BorderThickness="2"
                     BorderBrush="White"
                     Background="Transparent"
-                    Click="ImportCSV_Click">
+                    Click="ExportCSV_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -71,7 +71,7 @@
                     <Image  Source="/Images/pagesicons/download.png"
                                 Grid.Column="0"
                                 Style="{StaticResource ButtonIconsStyle}"/>
-                    <TextBlock Text=".csv"
+                    <TextBlock Text="Export"
                                Grid.Column="1" 
                                Style="{StaticResource ButtonTxtStyle}"
                                Foreground="White"/>
@@ -129,12 +129,12 @@
                     <GridView.Columns>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
                         <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding Manufacturer}" Width="100"/>
-                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding SerialNumber}" Width="100"/>
-                        <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding ModelNumber}" Width="100"/>
+                        <GridViewColumn Header="Serial Number" DisplayMemberBinding="{Binding SerialNumber}" Width="150"/>
+                        <GridViewColumn Header="Model Number" DisplayMemberBinding="{Binding ModelNumber}" Width="150"/>
                         <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}" Width="100"/>
                         <GridViewColumn x:Name="LocationNameColumn" Header="Location" DisplayMemberBinding="{Binding Location}" Width="100"/>
-                        <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding UnitCost}" Width="Auto"/>
-                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="Auto"/>
+                        <GridViewColumn Header="Cost per Unit (₦)" DisplayMemberBinding="{Binding UnitCost}" Width="100"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
                         <GridViewColumn Header="Date Added" DisplayMemberBinding="{Binding DateAdded, StringFormat='{}{0:dd/MM/yyyy}'}" Width="100"/>
                     </GridView.Columns>
                 </GridView>

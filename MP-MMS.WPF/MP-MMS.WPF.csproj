@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
     <Compile Remove="Controls\**" />
     <EmbeddedResource Remove="Controls\**" />

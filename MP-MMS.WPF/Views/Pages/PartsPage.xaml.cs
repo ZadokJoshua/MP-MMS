@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MP_MMS.Data;
+using MP_MMS.Data.DataService;
 using MP_MMS.Domain.Model;
 using MP_MMS.WPF.Views.Windows;
 using Syncfusion.ProjIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -15,8 +17,8 @@ namespace MP_MMS.WPF.Views.Pages
     /// </summary>
     public partial class PartsPage : Page
     {
-        public IEnumerable<Part> Parts { get; private set; }
-        public IEnumerable<Location> Locations { get; private set; }
+        public IEnumerable<Part>? Parts { get; private set; }
+        public IEnumerable<Location>? Locations { get; private set; }
         
 
         public PartsPage()
@@ -29,7 +31,7 @@ namespace MP_MMS.WPF.Views.Pages
         {
             using (MPMMSDbContext context = new())
             {
-                Parts = await context.Parts.ToListAsync();
+                Parts = await context.Parts.Include(p => p.Location).ToListAsync();
                 Locations = await context.Locations.ToListAsync();
             }
 
@@ -39,12 +41,24 @@ namespace MP_MMS.WPF.Views.Pages
             }
         }
         
-        private void ImportCSV_Click(object sender, RoutedEventArgs e)
+        private void ExportCSV_Click(object sender, RoutedEventArgs e)
         {
-            var importWindow = new ImportCSV();
-            importWindow.ShowDialog();
-
-            LoadListView();
+            if(Parts is not null)
+            {
+                try
+                {
+                    CsvDataService.ExportRecords(Parts);
+                    MessageBox.Show("Export Operation was successful.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No part has been added.", "No record", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void AddPart_Click(object sender, RoutedEventArgs e)
@@ -99,7 +113,7 @@ namespace MP_MMS.WPF.Views.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredList = Parts.Where(e => e.Name.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            var filteredList = Parts.Where(e => e.Name.Contains(txtSearch.Text) || (e.Manufacturer != null && e.Manufacturer.Contains(txtSearch.Text))).ToList();
             partsListView.ItemsSource = filteredList;
         }
     }
