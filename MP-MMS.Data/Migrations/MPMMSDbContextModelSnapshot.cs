@@ -52,6 +52,32 @@ namespace MP_MMS.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "mikejonathan@mpmms.com",
+                            FirstName = "Mike",
+                            LastName = "Jonathan",
+                            Role = "Electrician"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "susanaaron@mpmms.com",
+                            FirstName = "Susan",
+                            LastName = "Aaron",
+                            Role = "Safety officer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "barnabasotee@mpmms.com",
+                            FirstName = "Barnabas",
+                            LastName = "Otee",
+                            Role = "CNC Operator"
+                        });
                 });
 
             modelBuilder.Entity("MP_MMS.Domain.Model.Issue", b =>
@@ -95,6 +121,41 @@ namespace MP_MMS.Data.Migrations
                     b.HasIndex("PartId");
 
                     b.ToTable("Issues");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Replace damage bearings.",
+                            DueDate = new DateTime(2022, 11, 19, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(895),
+                            EmployeeId = 1,
+                            IsCompleted = false,
+                            Name = "Damage Bearings",
+                            PartId = 6,
+                            Priority = "Medium"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Replace broken welding helmet screen with the newer screen that are available in store 1.",
+                            DueDate = new DateTime(2022, 11, 23, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(903),
+                            EmployeeId = 2,
+                            IsCompleted = true,
+                            Name = "Broken welding helmet screen",
+                            PartId = 2,
+                            Priority = "Low"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "There's is a leakage at the bottom of the Compressed Air Storage Tank. Please work together with the welder to fix the issue.",
+                            DueDate = new DateTime(2022, 11, 19, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(906),
+                            EmployeeId = 2,
+                            IsCompleted = false,
+                            Name = "Tank leakage",
+                            PartId = 5,
+                            Priority = "Medium"
+                        });
                 });
 
             modelBuilder.Entity("MP_MMS.Domain.Model.Location", b =>
@@ -118,6 +179,32 @@ namespace MP_MMS.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "SIPET, Mechanical Engineering Building, Gidan-Kwanu Campus, Minna",
+                            Name = "Mechanical Engineering Workshop 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Opposite Engineering Complex, Gidan-Kwanu Campus, Minna",
+                            Name = "Mechanical Engineering Workshop 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Opposite Engineering Complex, Gidan-Kwanu Campus, Minna",
+                            Name = "CNC Workshop 1"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Physics Department, Bosso Campus, Minna",
+                            Name = "Milling Workshop 1"
+                        });
                 });
 
             modelBuilder.Entity("MP_MMS.Domain.Model.Part", b =>
@@ -170,6 +257,86 @@ namespace MP_MMS.Data.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("Parts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Actuator",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(781),
+                            LocationId = 1,
+                            Manufacturer = "McMaster Engineering Limited",
+                            ModelNumber = "C5-1",
+                            Name = "Face-Mount AC Motors",
+                            Quantity = 3,
+                            SerialNumber = "732675",
+                            UnitCost = 1200m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Others",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(809),
+                            LocationId = 3,
+                            Manufacturer = "Fiberglass Engineering",
+                            ModelNumber = "ADW-4F",
+                            Name = "Auto-Darkening Welding Helmets",
+                            Quantity = 2,
+                            SerialNumber = "N/A",
+                            UnitCost = 3200m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Others",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(815),
+                            LocationId = 3,
+                            Manufacturer = "Fiberglass Engineering",
+                            ModelNumber = "WWG-2F",
+                            Name = "Wraparound Welding Glasses",
+                            Quantity = 30,
+                            SerialNumber = "N/A",
+                            UnitCost = 200m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Belt",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(819),
+                            LocationId = 2,
+                            Manufacturer = "McMaster Engineering Limited",
+                            ModelNumber = "SPCON-A2",
+                            Name = "Sprockets for Conveyor Chain Belts",
+                            Quantity = 12,
+                            SerialNumber = "263712",
+                            UnitCost = 1200m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Others",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(824),
+                            LocationId = 1,
+                            Manufacturer = "BlueLight",
+                            ModelNumber = "T3-CAS",
+                            Name = "Compressed Air Storage Tank",
+                            Quantity = 1,
+                            SerialNumber = "9888K9",
+                            UnitCost = 5500m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Bearing",
+                            DateAdded = new DateTime(2022, 11, 18, 17, 28, 56, 830, DateTimeKind.Local).AddTicks(828),
+                            LocationId = 2,
+                            Manufacturer = "McMaster Engineering Limited",
+                            ModelNumber = "N/A",
+                            Name = "Bearings for suspension system",
+                            Quantity = 2,
+                            SerialNumber = "4712",
+                            UnitCost = 50m
+                        });
                 });
 
             modelBuilder.Entity("MP_MMS.Domain.Model.User", b =>
