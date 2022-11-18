@@ -3,7 +3,7 @@
 <b>Machine Parts - Management and Maintenance System</b> - A desktop application that monitors and tracks the state of machine parts and equipment in an engineering workshop. 
 
 ## Tools & Technologies:
-C#, WPF, SQL Server Express, Syncfusion(Community License} and Entity Framework (EF) Core.
+C#, WPF, SQL Server Express, Syncfusion (Community License} and Entity Framework (EF) Core.
 
 ## Views
 ### Sign-in
