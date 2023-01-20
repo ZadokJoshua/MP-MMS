@@ -1,5 +1,5 @@
-### MP-MMS
----
+## MP-MMS
+
 <b>Machine Parts - Management and Maintenance System</b> - A desktop application that monitors and tracks the state of machine parts and equipment in an engineering workshop. 
 
 ## Tools & Technologies:
