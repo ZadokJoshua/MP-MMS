@@ -1,33 +1,32 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--Colors-->
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Colors  -->
     <Color x:Key="PrimaryColour1">#52585C</Color>
     <Color x:Key="PrimaryColour2">#3D8421</Color>
     <Color x:Key="PrimaryColour3">#181A1B</Color>
-    <!--Brushes-->
-    <SolidColorBrush x:Key="BrushPrimaryColour1"  Color="{StaticResource PrimaryColour1}"/>
-    <SolidColorBrush x:Key="BrushPrimaryColour2"  Color="{StaticResource PrimaryColour2}"/>
-    <SolidColorBrush x:Key="BrushPrimaryColour3"  Color="{StaticResource PrimaryColour3}"/>
+    <!--  Brushes  -->
+    <SolidColorBrush x:Key="BrushPrimaryColour1" Color="{StaticResource PrimaryColour1}" />
+    <SolidColorBrush x:Key="BrushPrimaryColour2" Color="{StaticResource PrimaryColour2}" />
+    <SolidColorBrush x:Key="BrushPrimaryColour3" Color="{StaticResource PrimaryColour3}" />
     <FontFamily x:Key="DefaultFont">Arial</FontFamily>
-    <!--Navigation Bar Button Styles-->
+    <!--  Navigation Bar Button Styles  -->
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="35"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Width" Value="140" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource BrushPrimaryColour2}"/>
+                <Setter Property="Background" Value="{StaticResource BrushPrimaryColour2}" />
             </Trigger>
         </Style.Triggers>
         <!--<Style.Resources>
@@ -35,21 +34,21 @@
                 <Setter Property="CornerRadius" Value="10"/>
             </Style>
         </Style.Resources>-->
-    </Style> 
-    
-    <!--Buttons Textblock-->
-    <Style x:Key="ButtonTxtStyle" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="{StaticResource DefaultFont}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="FontWeight" Value="ExtraLight"/>
-        <Setter Property="Margin" Value="10 0 0 0"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <!--Buttons Icons-->
+    <!--  Buttons Textblock  -->
+    <Style x:Key="ButtonTxtStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="ExtraLight" />
+        <Setter Property="Margin" Value="10,0,0,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!--  Buttons Icons  -->
     <Style x:Key="ButtonIconsStyle" TargetType="Image">
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
 </ResourceDictionary>

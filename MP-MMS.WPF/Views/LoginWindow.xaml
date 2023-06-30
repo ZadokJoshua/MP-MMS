@@ -57,12 +57,12 @@
                          FontSize="13"
                          VerticalContentAlignment="Center"/>
 
-                <Syncfusion:ButtonAdv x:Name="SubmitBtn" Label="Submit" 
+                <Syncfusion:ButtonAdv x:Name="SubmitBtn" Label="Submit"
                                   Margin="5 15"
                                   Foreground="White"
                                   Background="{StaticResource BrushPrimaryColour2}"
                                   SmallIcon="\Images\enter.png"
-                                  Height="30" 
+                                  Height="30"
                                   Click="SubmitBtn_Click"
                                   IsDefault="True"/>
                 <Label Content="© Polyteric Systems 2022" 

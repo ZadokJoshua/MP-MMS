@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP-MMS.WPF", "..\MP-MMS.WPF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP-MMS.Data", "..\MP-MMS.Data\MP-MMS.Data.csproj", "{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP-MMS.Services", "MP-MMS.Services\MP-MMS.Services.csproj", "{D166C0D0-95E0-4CED-8E8F-6698DD5013AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D1B29A-65AA-42E6-A0C5-7004FEE4991B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D166C0D0-95E0-4CED-8E8F-6698DD5013AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D166C0D0-95E0-4CED-8E8F-6698DD5013AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D166C0D0-95E0-4CED-8E8F-6698DD5013AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D166C0D0-95E0-4CED-8E8F-6698DD5013AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
