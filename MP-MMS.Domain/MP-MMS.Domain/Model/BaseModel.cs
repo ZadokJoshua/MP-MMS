@@ -13,7 +13,6 @@ namespace MP_MMS.Domain.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Optional]
         public int Id { get; set; }
     }
 }

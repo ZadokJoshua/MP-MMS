@@ -14,9 +14,6 @@ namespace MP_MMS.Domain.Model
 
         public ICollection<Part> Parts { get; set; } = new List<Part>();
 
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
+        public override string ToString() => $"{Name}";
     }
 }

@@ -12,12 +12,10 @@ namespace MP_MMS.Domain.Model
         [MaxLength(200)]
         public string? Description { get; set; }
 
-        
         [ForeignKey("PartId")]
         public int PartId { get; set; }
         public Part Part { get; set; }
 
-        
         [ForeignKey("EmployeeId")]
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
@@ -28,9 +26,6 @@ namespace MP_MMS.Domain.Model
 
         public bool IsCompleted { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
+        public override string ToString() => $"{Name}";
     }
 }

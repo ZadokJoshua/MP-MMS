@@ -40,9 +40,6 @@ namespace MP_MMS.Domain.Model
 
         public ICollection<Issue> Issues { get; set; } = new List<Issue>();
 
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
+        public override string ToString() => $"{Name}";
     }
 }
