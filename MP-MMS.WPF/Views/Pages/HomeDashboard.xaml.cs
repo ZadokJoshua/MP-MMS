@@ -51,7 +51,6 @@ public partial class HomeDashboard : Page
     {
         using (MPMMSDbContext context = new())
         {
-            TbOpenIssues.Text = context.Issues.Where(i => i.IsCompleted.Equals(false)).Count().ToString();
             TbMachineParts.Text = context.Parts.Count().ToString();
             TbEmployees.Text = context.Employees.Count().ToString();
         }
