@@ -28,8 +28,6 @@ namespace MP_MMS.WPF.Views.Windows
             "Seal",
             "Others"
         };
-
-
         public AddPart()
         {
             InitializeComponent();
@@ -40,6 +38,7 @@ namespace MP_MMS.WPF.Views.Windows
             Owner = Application.Current.MainWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
+        
 
         private void AddPart_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +73,11 @@ namespace MP_MMS.WPF.Views.Windows
             }
 
             cBoxLocation.ItemsSource = locations;
+        }
+
+        private void FileDialogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
