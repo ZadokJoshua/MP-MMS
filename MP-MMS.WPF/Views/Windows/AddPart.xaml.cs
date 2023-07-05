@@ -1,9 +1,12 @@
-﻿using MP_MMS.Data;
+﻿using Microsoft.Win32;
+using MP_MMS.Data;
 using MP_MMS.Domain.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace MP_MMS.WPF.Views.Windows
 {
@@ -77,7 +80,19 @@ namespace MP_MMS.WPF.Views.Windows
 
         private void FileDialogBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.png; *.jpg)|*.png;*.jpg;*.jpeg|All files (*.*)|*.*";
+
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            // Set the initial dialog page to My Pictures directory
+
+            if (dialog.ShowDialog() == true)
+            {
+                string filename = dialog.FileName;
+                ImgPart.Source = new BitmapImage(new Uri(filename));
+                string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filename);
+                TbImgName.Text = fileNameWithoutExtension;
+            }
         }
     }
 }
