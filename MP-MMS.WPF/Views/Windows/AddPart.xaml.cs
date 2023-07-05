@@ -59,6 +59,14 @@ namespace MP_MMS.WPF.Views.Windows
             part.Quantity = (int)txtQuantity.Value;
             part.DateAdded = Convert.ToDateTime(txtDateAdded.Value);
 
+            string fileUrl = ImgPart.Source.ToString();
+
+            Uri uri = new Uri(fileUrl);
+            string filePath = uri.LocalPath;
+
+            byte[] imageBytes = File.ReadAllBytes(filePath);
+            part.Image = imageBytes;
+
             using (MPMMSDbContext context = new())
             {
                 context.Parts.Add(part);

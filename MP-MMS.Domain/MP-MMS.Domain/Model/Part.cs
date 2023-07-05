@@ -22,6 +22,9 @@ namespace MP_MMS.Domain.Model
         [MaxLength(100)]
         public string? ModelNumber { get; set; }
 
+        [NotMapped]
+        public byte[]? Image { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string? Category { get; set; }
